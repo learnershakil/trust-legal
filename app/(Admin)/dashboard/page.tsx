@@ -1,12 +1,11 @@
 import { getServerSession } from "next-auth";
-import { Session } from "next-auth";
 import { redirect } from "next/navigation";
 import { NEXT_AUTH_CONFIG } from "@/lib/auth";
 import PageTemplate from '@/components/Home/page-template';
 import { AlertCircle, Briefcase, FileText, Users } from 'lucide-react';
 
 const Dashboard = async () => {
-
+        // @ts-ignore
     const session = await getServerSession(NEXT_AUTH_CONFIG);
 
   if (!session) {

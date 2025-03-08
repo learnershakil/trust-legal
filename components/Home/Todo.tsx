@@ -1,28 +1,83 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { CheckSquare, MoreHorizontal, Plus } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 
 const Todo = () => {
-    const [todos, setTodos] = useState([
-        { id: 1, text: "Review Johnson contract", completed: false },
-        { id: 2, text: "Prepare for Smith deposition", completed: true },
-        { id: 3, text: "File motion for Henderson case", completed: false },
-        { id: 4, text: "Call expert witness Dr. Miller", completed: false },
-        { id: 5, text: "Update client on Westfield progress", completed: false },
-    ])
-
+    const [todos, setTodos] = useState<Array<{id: string, text: string, completed: boolean}>>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const toggleTodo = (id: number) => {
-        setTodos(todos.map((todo) =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        ))
+    // Fetch todos from API
+    const fetchTodos = async () => {
+        setLoading(true)
+        try {
+            const response = await fetch('/api/todo')
+            if (!response.ok) {
+                throw new Error('Failed to fetch todos')
+            }
+            const data = await response.json()
+            setTodos(data)
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'An error occurred')
+        } finally {
+            setLoading(false)
+        }
     }
 
-    const addTodo = (text: string) => {
-        if (text.trim()) {
-            setTodos([{ id: Date.now(), text, completed: false }, ...todos])
+    // Load todos on component mount
+    useEffect(() => {
+        fetchTodos()
+    }, [])
+
+    const toggleTodo = async (id: string) => {
+        try {
+            const todoToToggle = todos.find(todo => todo.id === id)
+            if (!todoToToggle) return
+
+            const response = await fetch(`/api/todo/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    id,
+                    done: !todoToToggle.completed 
+                }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to update todo')
+            }
+            
+            // Refresh todos after update
+            fetchTodos()
+        } catch (err) {
+            console.error('Error updating todo:', err)
+        }
+    }
+
+    const addTodo = async (text: string) => {
+        if (!text.trim()) return
+        
+        try {
+            const response = await fetch('/api/todo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to add todo')
+            }
+            
+            // Refresh todos after adding
+            fetchTodos()
             inputRef.current?.focus()
+        } catch (err) {
+            console.error('Error adding todo:', err)
         }
     }
 
@@ -42,40 +97,46 @@ const Todo = () => {
 
             {/* Task List */}
             <div className="space-y-2 max-h-[calc(100vh-200px)] overflow-y-auto pb-16">
-                <AnimatePresence>
-                    {todos.map((todo) => (
-                        <motion.div
-                            key={todo.id}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="flex items-start group p-2 rounded-md hover:bg-gray-100 transition"
-                        >
-                            <button
-                                onClick={() => toggleTodo(todo.id)}
-                                className={`flex-shrink-0 h-5 w-5 rounded border-2
-                                    ${todo.completed
-                                        ? "bg-[#9e814d] border-[#9e814d] text-white"
-                                        : "border-black hover:border-[#9e814d] bg-gray-300"}
-                                    mr-2 mt-0.5 flex items-center justify-center transition-all`}
-                                aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+                {loading && todos.length === 0 ? (
+                    <p className="text-center text-gray-500">Loading tasks...</p>
+                ) : error ? (
+                    <p className="text-center text-red-500">{error}</p>
+                ) : (
+                    <AnimatePresence>
+                        {todos.map((todo) => (
+                            <motion.div
+                                key={todo.id}
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                className="flex items-start group p-2 rounded-md hover:bg-gray-100 transition"
                             >
-                                {todo.completed && <CheckSquare size={14} />}
-                            </button>
-                            <span
-                                className={`text-sm transition-all ${todo.completed ? "line-through text-gray-500" : "text-gray-700"}`}
-                            >
-                                {todo.text}
-                            </span>
-                            <button
-                                className="ml-auto opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-gray-600 transition"
-                                aria-label="Task options"
-                            >
-                                <MoreHorizontal size={14} />
-                            </button>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
+                                <button
+                                    onClick={() => toggleTodo(todo.id)}
+                                    className={`flex-shrink-0 h-5 w-5 rounded border-2
+                                        ${todo.completed
+                                            ? "bg-[#9e814d] border-[#9e814d] text-white"
+                                            : "border-black hover:border-[#9e814d] bg-gray-300"}
+                                        mr-2 mt-0.5 flex items-center justify-center transition-all`}
+                                    aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+                                >
+                                    {todo.completed && <CheckSquare size={14} />}
+                                </button>
+                                <span
+                                    className={`text-sm transition-all ${todo.completed ? "line-through text-gray-500" : "text-gray-700"}`}
+                                >
+                                    {todo.text}
+                                </span>
+                                <button
+                                    className="ml-auto opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-gray-600 transition"
+                                    aria-label="Task options"
+                                >
+                                    <MoreHorizontal size={14} />
+                                </button>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                )}
             </div>
 
             {/* Add Task Form */}

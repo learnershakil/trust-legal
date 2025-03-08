@@ -152,17 +152,18 @@ export default function NewsletterStats({ subscribers, newsletters }) {
                     {Object.keys(tagCounts).length > 0 ? (
                         <div className="space-y-4">
                             {Object.entries(tagCounts)
-                                .sort((a, b) => b[1] - a[1])
+                            // @ts-ignore
+                                .sort((a, b) => Number(b[1]) - Number(a[1]))
                                 .map(([tag, count]) => (
                                     <div key={tag}>
                                         <div className="flex justify-between mb-1">
                                             <span className="text-sm font-medium text-gray-700">{tag}</span>
-                                            <span className="text-sm font-medium text-gray-700">{count}</span>
+                                            <span className="text-sm font-medium text-gray-700">{count as number}</span>
                                         </div>
                                         <div className="w-full bg-gray-200 rounded-full h-2">
                                             <div
                                                 className="bg-[#9e814d] h-2 rounded-full"
-                                                style={{ width: `${(count / totalSubscribers) * 100}%` }}
+                                                style={{ width: `${(count as number/ totalSubscribers) * 100}%` }}
                                             ></div>
                                         </div>
                                     </div>

@@ -64,6 +64,7 @@ export default function NewsletterPage() {
         if (selectedNewsletter) {
             // Update existing newsletter
             setNewsletters(newsletters.map(nl =>
+                // @ts-ignore
                 nl.id === selectedNewsletter.id ? { ...nl, ...newsletterData } : nl
             ))
         } else {
