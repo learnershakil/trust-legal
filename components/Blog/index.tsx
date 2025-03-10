@@ -9,6 +9,7 @@ import BlogView from './BlogView'
 interface Blog {
     id: number
     title: string
+    slug: string
     content: string
     author: string
     date: string
@@ -34,6 +35,7 @@ const createBlog = async (blog: Omit<Blog, 'id'>) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 title: blog.title,
+                slug: blog.slug,
                 excerpt: blog.content.substring(0, 150) + (blog.content.length > 150 ? '...' : ''),
                 description: blog.content,
                 date: blog.date,
@@ -59,6 +61,7 @@ const updateBlog = async (blog: Blog) => {
             body: JSON.stringify({
                 id: blog.id,
                 title: blog.title,
+                slug: blog.slug,
                 excerpt: blog.content.substring(0, 150) + (blog.content.length > 150 ? '...' : ''),
                 description: blog.content,
                 date: blog.date,
@@ -96,6 +99,7 @@ const convertApiToBlogFormat = (apiData: any[]): Blog[] => {
     return apiData.map(item => ({
         id: item.id,
         title: item.title,
+        slug: item.slug || '',
         content: item.description,
         author: item.author || 'Unknown',
         date: item.date,
@@ -235,7 +239,6 @@ export default function BlogPage() {
 
             {(currentView === 'create' || currentView === 'edit') && (
                 <BlogEditor
-                    // @ts-ignore
                     blog={currentView === 'edit' ? currentBlog || undefined : undefined}
                     onSave={handleSave}
                     onCancel={handleCancel}

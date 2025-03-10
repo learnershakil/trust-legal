@@ -3,6 +3,7 @@ import { Edit, Eye, PlusCircle, Trash2 } from "lucide-react"
 interface Blog {
     id: number
     title: string
+    slug: string
     content: string
     author: string
     date: string
@@ -52,6 +53,9 @@ export default function BlogList({ blogs, onCreateNew, onEdit, onView, onDelete 
                                         {tag}
                                     </span>
                                 ))}
+                            </div>
+                            <div className="text-xs text-gray-400">
+                                Slug: /{blog.slug}
                             </div>
                         </div>
 

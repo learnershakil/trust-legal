@@ -14,50 +14,53 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   name      String
-  email     String    @unique
+  email     String   @unique
   password  String
-  createdAt DateTime  @default(now())
+  createdAt DateTime @default(now())
   image     String?
 }
 
 model Todo {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   text      String
-  done      Boolean   @default(false)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Newsletter {
-  id      String    @id @default(uuid())
-  mailId  String    @unique
-  createdAt DateTime  @default(now())
+  id        String   @id @default(uuid())
+  mailId    String   @unique
+  createdAt DateTime @default(now())
 }
 
 model Blog {
-  id          String    @id @default(uuid())
-  slug        String    @unique
+  id          String   @id @default(cuid())
   title       String
-  excerpt     String    @db.Text
-  description String    @db.Text
+  slug        String   @unique
+  excerpt     String
+  description String   @db.Text
   date        String
   category    String
   image       String
-  featured    Boolean   @default(false)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  featured    Boolean  @default(false)
+  author      String?  @default("Unknown")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
 }
 
 model Message {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   name      String
   email     String
   company   String
-  message   String    @db.Text
-  Fav      Boolean   @default(false)
-  date      DateTime  @default(now())
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  message   String   @db.Text
+  Fav       Boolean  @default(false)
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

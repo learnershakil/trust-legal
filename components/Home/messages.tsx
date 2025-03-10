@@ -1,86 +1,49 @@
 "use client"
 
 import { Archive, ChevronDown, ChevronLeft, ChevronRight, Filter, Mail, MoreHorizontal, Search, Star, Trash, X } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+interface Message {
+    id: string
+    name: string
+    email: string
+    company: string
+    message: string
+    Fav: boolean
+    date: string
+    createdAt: string
+    updatedAt: string
+}
 
 const Messages = () => {
-    const [selectedMessages, setSelectedMessages] = useState<number[]>([])
-    const [openMessage, setOpenMessage] = useState<number | null>(null)
+    const [selectedMessages, setSelectedMessages] = useState<string[]>([])
+    const [openMessage, setOpenMessage] = useState<string | null>(null)
+    const [messages, setMessages] = useState<Message[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
+    const [error, setError] = useState<string | null>(null)
 
-    const [messages, setMessages] = useState([
-        {
-            id: 1,
-            sender: "Jane Smith",
-            email: "jane.smith@lawfirm.com",
-            company: "Smith & Associates",
-            subject: "Case Update - Johnson vs. Westfield",
-            preview: "I've reviewed the latest documents provided by opposing counsel and have some thoughts on our strategy moving forward...",
-            message: "I've reviewed the latest documents provided by opposing counsel in the Johnson vs. Westfield case and have some thoughts on our strategy moving forward. The opposing party has submitted new evidence that actually strengthens our position regarding the contract breach. I recommend we proceed with filing our response by Thursday.",
-            time: "10:30 AM",
-            isRead: false,
-            isStarred: true,
-        },
-        {
-            id: 2,
-            sender: "Michael Roberts",
-            email: "m.roberts@expert-witness.org",
-            company: "Expert Witness Services",
-            subject: "Expert Witness Confirmation",
-            preview: "Dr. Miller has confirmed availability for the deposition next Tuesday at 2pm. He will need the case files by Friday to prepare properly...",
-            message: "Dr. Miller has confirmed his availability for the deposition next Tuesday at 2:00 PM. He will need the complete case files by Friday to prepare properly. He has also requested the complete medical history of the plaintiff and all radiology reports from January 2024 onward.",
-            time: "Yesterday",
-            isRead: true,
-            isStarred: false,
-        },
-        {
-            id: 3,
-            sender: "Sarah Johnson",
-            email: "s.johnson@lawfirm.com",
-            company: "LAWFIRM Legal",
-            subject: "Contract Review Request",
-            preview: "Could you please review the attached contract for our new client? There are a few clauses I'm concerned about, particularly section 5.3 regarding...",
-            message: "Could you please review the attached contract for our new client, Riverstone Properties? There are a few clauses I'm concerned about, particularly section 5.3 regarding limitation of liability. The language seems unusually broad and could potentially expose our client to significant risk.",
-            time: "Mar 5",
-            isRead: true,
-            isStarred: false,
-        },
-        {
-            id: 4,
-            sender: "David Chen",
-            email: "d.chen@lawfirm.com",
-            company: "LAWFIRM Legal",
-            subject: "Meeting Rescheduled",
-            preview: "Due to a scheduling conflict, I need to reschedule our meeting about the Henderson case. Are you available this Thursday at 11am instead?",
-            message: "Due to a scheduling conflict with the court, I need to reschedule our meeting about the Henderson case. Are you available this Thursday at 11:00 AM instead? I've made significant progress on the case preparation and would like to discuss our litigation strategy before filing the motion.",
-            time: "Mar 3",
-            isRead: true,
-            isStarred: true,
-        },
-        {
-            id: 5,
-            sender: "Lisa Williams",
-            email: "l.williams@lawfirm.com",
-            company: "LAWFIRM Legal",
-            subject: "New Client Intake",
-            preview: "We have a new client intake form for the Thompson family. They're dealing with an estate planning issue that requires immediate attention...",
-            message: "We have a new client intake form for the Thompson family. They're dealing with an estate planning issue that requires immediate attention. The family matriarch, Eleanor Thompson (age 82), has been diagnosed with a serious illness and needs to finalize her estate planning documents as soon as possible.",
-            time: "Feb 28",
-            isRead: true,
-            isStarred: false,
-        },
-        {
-            id: 6,
-            sender: "Robert Taylor",
-            email: "r.taylor@lawfirm.com",
-            company: "LAWFIRM Legal",
-            subject: "Court Filing Deadline",
-            preview: "Just a reminder that we need to file the motion for the Peterson case by this Friday. I've attached the draft for your review...",
-            message: "Just a reminder that we need to file the motion for summary judgment in the Peterson case by this Friday, March 12. I've attached the current draft for your review. The key arguments focus on lack of standing by the plaintiff, statute of limitations expiration, and failure to establish prima facie elements of negligence.",
-            time: "Feb 25",
-            isRead: true,
-            isStarred: false,
-        },
-    ])
+    useEffect(() => {
+        const fetchMessages = async () => {
+            try {
+                setLoading(true)
+                const data = await getMessages()
+                setMessages(data)
+            } catch (err) {
+                setError("Failed to load messages. Please try again later.")
+                console.error(err)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchMessages()
+    }, [])
+
+    const getMessages = async () => {
+        const response = await fetch('/api/messages')
+        if (!response.ok) throw new Error('Failed to fetch messages')
+        return response.json()
+    }
 
     const toggleSelectAll = () => {
         if (selectedMessages.length === messages.length) {
@@ -90,7 +53,7 @@ const Messages = () => {
         }
     }
 
-    const toggleSelect = (id: number) => {
+    const toggleSelect = (id: string) => {
         if (selectedMessages.includes(id)) {
             setSelectedMessages(selectedMessages.filter(messageId => messageId !== id))
         } else {
@@ -98,25 +61,56 @@ const Messages = () => {
         }
     }
 
-    const toggleStar = (id: number) => {
-        setMessages(messages.map(message =>
-            message.id === id ? { ...message, isStarred: !message.isStarred } : message
-        ))
+    const toggleStar = async (id: string) => {
+        // Find the message and get its current Fav status
+        const message = messages.find(m => m.id === id)
+        if (!message) return
+
+        try {
+            // Update UI optimistically
+            setMessages(messages.map(msg =>
+                msg.id === id ? { ...msg, Fav: !msg.Fav } : msg
+            ))
+
+            // Here you would typically update the star status on the server
+            // This is a placeholder for the API call that would update the Fav field
+            // await fetch(`/api/messages/${id}/star`, {
+            //   method: 'PUT',
+            //   headers: { 'Content-Type': 'application/json' },
+            //   body: JSON.stringify({ Fav: !message.Fav })
+            // })
+        } catch (err) {
+            console.error("Failed to update favorite status", err)
+            // Revert UI change if API call fails
+            setMessages(messages)
+        }
     }
 
-    const markAsRead = (id: number) => {
-        setMessages(messages.map(message =>
-            message.id === id ? { ...message, isRead: true } : message
-        ))
+    const deleteSelected = async () => {
+        try {
+            // Optimistically update UI
+            const remainingMessages = messages.filter(message => !selectedMessages.includes(message.id))
+            setMessages(remainingMessages)
+
+            // Delete each selected message
+            for (const id of selectedMessages) {
+                await fetch('/api/messages', {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id })
+                })
+            }
+
+            setSelectedMessages([])
+        } catch (err) {
+            console.error("Failed to delete messages", err)
+            // Fetch messages again to reset state if there was an error
+            const data = await getMessages()
+            setMessages(data)
+        }
     }
 
-    const deleteSelected = () => {
-        setMessages(messages.filter(message => !selectedMessages.includes(message.id)))
-        setSelectedMessages([])
-    }
-
-    const openMessageDetail = (id: number) => {
-        markAsRead(id)
+    const openMessageDetail = (id: string) => {
         setOpenMessage(id)
     }
 
@@ -124,7 +118,28 @@ const Messages = () => {
         setOpenMessage(null)
     }
 
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString)
+        return date.toLocaleDateString()
+    }
+
+    const getPreview = (text: string) => {
+        return text.substring(0, 60) + (text.length > 60 ? '...' : '')
+    }
+
     const currentMessage = messages.find(m => m.id === openMessage)
+
+    if (loading) return (
+        <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#192841]"></div>
+        </div>
+    )
+
+    if (error) return (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            <p>{error}</p>
+        </div>
+    )
 
     return (
         <>
@@ -178,56 +193,60 @@ const Messages = () => {
 
                 {/* Message list */}
                 <div className="divide-y divide-gray-200">
-                    {messages.map((message) => (
-                        <div
-                            key={message.id}
-                            className={`flex items-center px-4 py-3 hover:bg-gray-50 cursor-pointer group ${!message.isRead ? 'bg-blue-50/50' : ''}`}
-                            onClick={() => openMessageDetail(message.id)}
-                        >
-                            <div className="flex items-center mr-4" onClick={e => e.stopPropagation()}>
-                                <input
-                                    type="checkbox"
-                                    className="h-4 w-4 rounded border-gray-300 text-[#192841] focus:ring-[#9e814d]"
-                                    checked={selectedMessages.includes(message.id)}
-                                    onChange={(e) => {
-                                        e.stopPropagation();
-                                        toggleSelect(message.id);
-                                    }}
-                                />
-                                <button
-                                    className="ml-3"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        toggleStar(message.id);
-                                    }}
-                                >
-                                    <Star
-                                        size={18}
-                                        className={message.isStarred ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 group-hover:text-gray-400'}
+                    {messages.length === 0 ? (
+                        <div className="p-4 text-center text-gray-500">No messages found</div>
+                    ) : (
+                        messages.map((message) => (
+                            <div
+                                key={message.id}
+                                className="flex items-center px-4 py-3 hover:bg-gray-50 cursor-pointer group"
+                                onClick={() => openMessageDetail(message.id)}
+                            >
+                                <div className="flex items-center mr-4" onClick={e => e.stopPropagation()}>
+                                    <input
+                                        type="checkbox"
+                                        className="h-4 w-4 rounded border-gray-300 text-[#192841] focus:ring-[#9e814d]"
+                                        checked={selectedMessages.includes(message.id)}
+                                        onChange={(e) => {
+                                            e.stopPropagation();
+                                            toggleSelect(message.id);
+                                        }}
                                     />
-                                </button>
-                            </div>
-
-                            <div className="flex-1 min-w-0">
-                                <div className="flex items-center justify-between">
-                                    <p className={`text-sm font-medium ${!message.isRead ? 'text-gray-900' : 'text-gray-700'}`}>
-                                        {message.sender}
-                                    </p>
-                                    <p className="text-xs text-gray-500">{message.time}</p>
+                                    <button
+                                        className="ml-3"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            toggleStar(message.id);
+                                        }}
+                                    >
+                                        <Star
+                                            size={18}
+                                            className={message.Fav ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 group-hover:text-gray-400'}
+                                        />
+                                    </button>
                                 </div>
-                                <p className={`text-sm truncate ${!message.isRead ? 'font-medium text-gray-900' : 'font-normal text-gray-700'}`}>
-                                    {message.subject}
-                                </p>
-                                <p className="text-xs text-gray-500 truncate">{message.preview}</p>
-                            </div>
 
-                            <div className="ml-4 opacity-0 group-hover:opacity-100" onClick={e => e.stopPropagation()}>
-                                <button className="p-1 rounded hover:bg-gray-200">
-                                    <MoreHorizontal size={16} className="text-gray-500" />
-                                </button>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between">
+                                        <p className="text-sm font-medium text-gray-900">
+                                            {message.name}
+                                        </p>
+                                        <p className="text-xs text-gray-500">{formatDate(message.date)}</p>
+                                    </div>
+                                    <p className="text-sm truncate font-medium text-gray-900">
+                                        Message from {message.company}
+                                    </p>
+                                    <p className="text-xs text-gray-500 truncate">{getPreview(message.message)}</p>
+                                </div>
+
+                                <div className="ml-4 opacity-0 group-hover:opacity-100" onClick={e => e.stopPropagation()}>
+                                    <button className="p-1 rounded hover:bg-gray-200">
+                                        <MoreHorizontal size={16} className="text-gray-500" />
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    )}
                 </div>
 
                 {/* Pagination/Status */}
@@ -244,7 +263,7 @@ const Messages = () => {
                 </div>
             </div>
 
-            {/* Simplified Email Modal */}
+            {/* Message Detail Modal */}
             {openMessage !== null && currentMessage && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4">
                     <div className="bg-white rounded-lg shadow-xl w-full max-w-lg">
@@ -264,7 +283,7 @@ const Messages = () => {
                             {/* Full Name */}
                             <div>
                                 <p className="text-sm text-gray-500 mb-1">Full Name</p>
-                                <p className="font-medium text-gray-900">{currentMessage.sender}</p>
+                                <p className="font-medium text-gray-900">{currentMessage.name}</p>
                             </div>
 
                             {/* Email */}
@@ -277,6 +296,12 @@ const Messages = () => {
                             <div>
                                 <p className="text-sm text-gray-500 mb-1">Company Name</p>
                                 <p className="text-gray-900">{currentMessage.company}</p>
+                            </div>
+
+                            {/* Date */}
+                            <div>
+                                <p className="text-sm text-gray-500 mb-1">Date</p>
+                                <p className="text-gray-900">{new Date(currentMessage.date).toLocaleString()}</p>
                             </div>
 
                             {/* Message */}
