@@ -18,7 +18,7 @@ export async function GET() {
 // POST - Create a new blog
 export async function POST(request: NextRequest) {
   try {
-    const { title, excerpt, description, date, category, image, featured = false } = await request.json();
+    const { title, slug, excerpt, description, date, category, image, featured = false } = await request.json();
     
     // Validate required fields
     if (!title || !excerpt || !description || !date || !category || !image) {
@@ -28,19 +28,31 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    const blog = await prisma.blog.create({
-      data: {
-        title,
-        excerpt,
-        description,
-        date,
-        category,
-        image,
-        featured
-      }
-    });
+    // Generate slug from title if not provided
+    const finalSlug = slug || title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
     
-    return NextResponse.json(blog, { status: 201 });
+    try {
+      const blog = await prisma.blog.create({
+        data: {
+          title,
+          slug: finalSlug,
+          excerpt,
+          description,
+          date,
+          category,
+          image,
+          featured
+        }
+      });
+      
+      return NextResponse.json(blog, { status: 201 });
+    } catch (error: any) {
+      // Handle slug uniqueness constraint violation
+      if (error.code === 'P2002') {
+        return NextResponse.json({ error: 'A blog with this slug already exists' }, { status: 409 });
+      }
+      throw error;
+    }
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to create blog' }, { status: 500 });
@@ -50,7 +62,7 @@ export async function POST(request: NextRequest) {
 // PUT - Update an existing blog
 export async function PUT(request: NextRequest) {
   try {
-    const { id, title, excerpt, description, date, category, image, featured } = await request.json();
+    const { id, title, slug, excerpt, description, date, category, image, featured } = await request.json();
     
     if (!id) {
       return NextResponse.json({ error: 'Blog ID is required' }, { status: 400 });
@@ -59,6 +71,7 @@ export async function PUT(request: NextRequest) {
     // Create an update object with only the fields that are provided
     const updateData: any = {};
     if (title !== undefined) updateData.title = title;
+    if (slug !== undefined) updateData.slug = slug;
     if (excerpt !== undefined) updateData.excerpt = excerpt;
     if (description !== undefined) updateData.description = description;
     if (date !== undefined) updateData.date = date;
@@ -73,6 +86,9 @@ export async function PUT(request: NextRequest) {
     
     return NextResponse.json(updatedBlog);
   } catch (error: any) {
+    if (error.code === 'P2002') {
+      return NextResponse.json({ error: 'A blog with this slug already exists' }, { status: 409 });
+    }
     if (error.code === 'P2025') {
       return NextResponse.json({ error: 'Blog not found' }, { status: 404 });
     }

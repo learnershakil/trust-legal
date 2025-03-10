@@ -38,6 +38,7 @@ model Newsletter {
 
 model Blog {
   id          String    @id @default(uuid())
+  slug        String    @unique
   title       String
   excerpt     String    @db.Text
   description String    @db.Text
