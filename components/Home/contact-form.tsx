@@ -1,8 +1,30 @@
 "use client"
 
-import type React from "react"
+import type React from "react";
+import { useState } from "react";
 
-import { useState } from "react"
+// API function to send the message
+const sendMessage = async (messageData: {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}) => {
+  const response = await fetch('/api/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: messageData.name,
+      email: messageData.email,
+      company: messageData.company,
+      message: messageData.message
+    })
+  });
+
+  return response
+};
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,28 +36,44 @@ export default function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Clear error when user starts typing again
+    if (error) setError(null)
   }
 
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Call the API function instead of using setTimeout
+      const result = await sendMessage(formData)
+      console.log(result)
+      // Check if the API returned a success status
+      if (result.ok) {
+        setIsSubmitted(true)
+        setFormData({ name: "", email: "", company: "", message: "" })
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 5000)
+      } else {
+        // Handle API error response
+        setError("Failed to send message. Please try again.")
+      }
+    } catch (err) {
+      // Handle network or unexpected errors
+      setError("An error occurred. Please try again later.")
+      console.error("Form submission error:", err)
+    } finally {
       setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormData({ name: "", email: "", company: "", message: "" })
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
-    }, 1500)
+    }
   }
 
   return (
@@ -116,11 +154,15 @@ export default function ContactForm() {
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
       {isSubmitted && (
-        <div className="rounded-md border border-[#ba9669]/30 bg-[#ba9669]/10 p-4 text-sm text-[#1e2b3e] shadow-sm">
+        <div className="rounded-md border border-[#ba9669]/30 bg-[#ba9669]/10 p-4 text-sm text-[#ba9669] shadow-sm">
           Thank you for your message! We&apos;ll get back to you shortly.
+        </div>
+      )}
+      {error && (
+        <div className="rounded-md border border-red-300 bg-red-50 p-4 text-sm text-red-800 shadow-sm">
+          {error}
         </div>
       )}
     </form>
   )
 }
-

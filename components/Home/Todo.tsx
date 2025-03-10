@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { CheckSquare, MoreHorizontal, Plus } from "lucide-react"
-import { useRef, useState, useEffect } from "react"
+import { CheckSquare, Plus, Trash2 } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 const Todo = () => {
-    const [todos, setTodos] = useState<Array<{id: string, text: string, completed: boolean}>>([])
+    const [todos, setTodos] = useState<Array<{ id: string, text: string, done: boolean }>>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const inputRef = useRef<HTMLInputElement>(null)
@@ -34,22 +34,23 @@ const Todo = () => {
         try {
             const todoToToggle = todos.find(todo => todo.id === id)
             if (!todoToToggle) return
+            console.log(id)
 
-            const response = await fetch(`/api/todo/${id}`, {
+            const response = await fetch(`/api/todo`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     id,
-                    done: !todoToToggle.completed 
+                    done: !todoToToggle.done
                 }),
             })
 
             if (!response.ok) {
                 throw new Error('Failed to update todo')
             }
-            
+
             // Refresh todos after update
             fetchTodos()
         } catch (err) {
@@ -57,9 +58,30 @@ const Todo = () => {
         }
     }
 
+    const deleteTodo = async (id: string) => {
+        try {
+            const response = await fetch('/api/todo', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to delete todo')
+            }
+
+            // Refresh todos after deletion
+            fetchTodos()
+        } catch (err) {
+            console.error('Error deleting todo:', err)
+        }
+    }
+
     const addTodo = async (text: string) => {
         if (!text.trim()) return
-        
+
         try {
             const response = await fetch('/api/todo', {
                 method: 'POST',
@@ -72,7 +94,7 @@ const Todo = () => {
             if (!response.ok) {
                 throw new Error('Failed to add todo')
             }
-            
+
             // Refresh todos after adding
             fetchTodos()
             inputRef.current?.focus()
@@ -114,24 +136,25 @@ const Todo = () => {
                                 <button
                                     onClick={() => toggleTodo(todo.id)}
                                     className={`flex-shrink-0 h-5 w-5 rounded border-2
-                                        ${todo.completed
+                                        ${todo.done
                                             ? "bg-[#9e814d] border-[#9e814d] text-white"
                                             : "border-black hover:border-[#9e814d] bg-gray-300"}
                                         mr-2 mt-0.5 flex items-center justify-center transition-all`}
-                                    aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+                                    aria-label={todo.done ? "Mark as incomplete" : "Mark as complete"}
                                 >
-                                    {todo.completed && <CheckSquare size={14} />}
+                                    {todo.done && <CheckSquare size={14} />}
                                 </button>
                                 <span
-                                    className={`text-sm transition-all ${todo.completed ? "line-through text-gray-500" : "text-gray-700"}`}
+                                    className={`text-sm transition-all ${todo.done ? "line-through text-gray-500" : "text-gray-700"}`}
                                 >
                                     {todo.text}
                                 </span>
                                 <button
-                                    className="ml-auto opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-gray-600 transition"
-                                    aria-label="Task options"
+                                    onClick={() => deleteTodo(todo.id)}
+                                    className="ml-auto opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-red-500 transition"
+                                    aria-label="Delete task"
                                 >
-                                    <MoreHorizontal size={14} />
+                                    <Trash2 size={14} />
                                 </button>
                             </motion.div>
                         ))}

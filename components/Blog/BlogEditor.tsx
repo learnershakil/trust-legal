@@ -2,8 +2,9 @@ import { Save, X } from "lucide-react";
 import { useState } from "react";
 
 interface Blog {
-    id?: string;
+    id?: number;
     title: string;
+    slug: string;
     content: string;
     author: string;
     tags: string[];
@@ -11,13 +12,16 @@ interface Blog {
 
 interface BlogEditorProps {
     blog?: Blog;
+    onSave: (blog: Omit<Blog, 'id' | 'date'>) => void;
     onCancel: () => void;
     isEditing: boolean;
 }
 
-export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProps) {
+export default function BlogEditor({ blog, onSave, onCancel, isEditing }: BlogEditorProps) {
     const [formData, setFormData] = useState<Blog>({
+        id: blog?.id,
         title: blog?.title || "",
+        slug: blog?.slug || "",
         content: blog?.content || "",
         author: blog?.author || "",
         tags: blog?.tags || []
@@ -25,7 +29,6 @@ export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProp
 
     const [errors, setErrors] = useState<Partial<Record<keyof Blog, string>>>({});
     const [loading, setLoading] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -43,11 +46,24 @@ export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProp
         }
     };
 
+    // Generate slug from title
+    const generateSlug = () => {
+        const slug = formData.title
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w-]+/g, '');
+
+        setFormData(prev => ({
+            ...prev,
+            slug
+        }));
+    };
 
     const validate = (): boolean => {
         const newErrors: Partial<Record<keyof Blog, string>> = {};
 
         if (!formData.title.trim()) newErrors.title = "Title is required";
+        if (!formData.slug.trim()) newErrors.slug = "Slug is required";
         if (!formData.content.trim()) newErrors.content = "Content is required";
         if (!formData.author.trim()) newErrors.author = "Author is required";
 
@@ -61,39 +77,16 @@ export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProp
         if (!validate()) return;
 
         setLoading(true);
-        setSuccessMessage("");
 
         try {
-            const response = await fetch("/api/blog", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    title: formData.title,
-                    excerpt: formData.content.substring(0, 100), // Creating an excerpt from content
-                    description: formData.content,
-                    date: new Date().toISOString(),
-                    category: "General", // Replace this with a selected category if needed
-                    image: "https://via.placeholder.com/600", // Placeholder image, replace with real image logic
-                    featured: false
-                })
+            // Pass the blog data to the parent component's onSave handler
+            await onSave({
+                title: formData.title,
+                slug: formData.slug,
+                content: formData.content,
+                author: formData.author,
+                tags: formData.tags
             });
-
-            if (!response.ok) {
-                throw new Error("Failed to save blog post");
-            }
-
-            const result = await response.json();
-            setSuccessMessage("Blog post saved successfully!");
-            setFormData({
-                title: "",
-                content: "",
-                author: "",
-                tags: []
-            });
-
-            console.log("Blog saved:", result);
         } catch (error) {
             console.error(error);
             setErrors({ title: "Failed to save blog post" });
@@ -125,10 +118,36 @@ export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProp
                         name="title"
                         value={formData.title}
                         onChange={handleChange}
+                        onBlur={() => !formData.slug && generateSlug()}
                         className={`w-full px-4 py-2 border rounded-md focus:outline-none ${errors.title ? "border-red-500" : "border-gray-300"}`}
                         placeholder="Enter blog title"
                     />
                     {errors.title && <p className="mt-1 text-sm text-red-500">{errors.title}</p>}
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Slug
+                        <span className="text-xs text-gray-500 ml-2">(URL-friendly identifier)</span>
+                    </label>
+                    <div className="flex gap-2">
+                        <input
+                            type="text"
+                            name="slug"
+                            value={formData.slug}
+                            onChange={handleChange}
+                            className={`w-full px-4 py-2 border rounded-md focus:outline-none ${errors.slug ? "border-red-500" : "border-gray-300"}`}
+                            placeholder="my-blog-post-url"
+                        />
+                        <button
+                            type="button"
+                            onClick={generateSlug}
+                            className="px-3 py-2 bg-gray-100 text-gray-700 rounded-md text-sm whitespace-nowrap"
+                        >
+                            Generate from Title
+                        </button>
+                    </div>
+                    {errors.slug && <p className="mt-1 text-sm text-red-500">{errors.slug}</p>}
                 </div>
 
                 <div>
@@ -168,8 +187,6 @@ export default function BlogEditor({ blog, onCancel, isEditing }: BlogEditorProp
                         placeholder="e.g. Legal, Business, Tech"
                     />
                 </div>
-
-                {successMessage && <p className="text-green-600">{successMessage}</p>}
 
                 <div className="flex justify-end gap-4 pt-4">
                     <button type="button" onClick={onCancel} className="border border-gray-300 text-gray-700 px-4 py-2 rounded-md">

@@ -1,22 +1,24 @@
-import { ArrowLeft, Calendar, Edit, Tag, User } from "lucide-react"
+import { ArrowLeft, Calendar, Edit, Link, Tag, User } from "lucide-react";
 
 interface Blog {
-    id: number
-    title: string
-    content: string
-    author: string
-    date: string
-    tags: string[]
+    id: number;
+    title: string;
+    slug: string;
+    content: string;
+    author: string;
+    date: string;
+    tags: string[];
 }
 
 interface BlogViewProps {
-    blog: Blog | null
-    onEdit: () => void
-    onBack: () => void
+    blog: Blog;
+    onEdit: () => void;
+    onBack: () => void;
 }
 
 export default function BlogView({ blog, onEdit, onBack }: BlogViewProps) {
-    if (!blog) return null
+    if (!blog) return null;
+    console.log(blog);
 
     return (
         <div className="bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto">
@@ -49,13 +51,17 @@ export default function BlogView({ blog, onEdit, onBack }: BlogViewProps) {
                     <Calendar size={16} />
                     <span>{new Date(blog.date).toLocaleDateString()}</span>
                 </div>
+                <div className="flex items-center gap-1">
+                    <Link size={16} />
+                    <span className="text-gray-500">/{blog.slug}</span>
+                </div>
             </div>
 
             <div className="prose max-w-none mb-8">
                 <p className="text-gray-700 whitespace-pre-line">{blog.content}</p>
             </div>
 
-            {blog.tags.length > 0 && (
+            {blog.tags && blog.tags.length > 0 && (
                 <div className="border-t border-gray-200 pt-4">
                     <div className="flex items-center gap-1 text-gray-600 mb-2">
                         <Tag size={16} />
@@ -74,5 +80,5 @@ export default function BlogView({ blog, onEdit, onBack }: BlogViewProps) {
                 </div>
             )}
         </div>
-    )
+    );
 }
