@@ -45,8 +45,8 @@ export async function POST(request: NextRequest) {
     // Send email notification
     try {
       await resend.emails.send({
-        from: 'sh4k1l.01@gmail.com', // Update with your verified domain
-        to: ['learnershakil@gmail.com', 'info@trustlegal.ca'],
+        from: 'onboarding@resend.dev', // Update with your verified domain
+        to: ['learnershakil@gmail.com', 'info@trustlegal.ca', 'sh4k1l.01@gmail.com'],
         subject: `New Contact Form Submission from ${name}`,
         html: `
           <h1>New Message Received</h1>
