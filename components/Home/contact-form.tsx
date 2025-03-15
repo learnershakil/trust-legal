@@ -90,7 +90,7 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="flex h-10 w-full rounded-md border border-[#1e2b3e]/20 bg-white px-3 py-2 text-sm text-[#1e2b3e] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-[#202d4a]/20 bg-white px-3 py-2 text-sm text-[#202d4a] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Full Name"
           required
         />
@@ -108,7 +108,7 @@ export default function ContactForm() {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          className="flex h-10 w-full rounded-md border border-[#1e2b3e]/20 bg-white px-3 py-2 text-sm text-[#1e2b3e] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-[#202d4a]/20 bg-white px-3 py-2 text-sm text-[#202d4a] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Email"
           required
         />
@@ -125,7 +125,7 @@ export default function ContactForm() {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          className="flex h-10 w-full rounded-md border border-[#1e2b3e]/20 bg-white px-3 py-2 text-sm text-[#1e2b3e] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-[#202d4a]/20 bg-white px-3 py-2 text-sm text-[#202d4a] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Company Name"
         />
       </div>
@@ -141,7 +141,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="flex min-h-[120px] w-full rounded-md border border-[#1e2b3e]/20 bg-white px-3 py-2 text-sm text-[#1e2b3e] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex min-h-[120px] w-full rounded-md border border-[#202d4a]/20 bg-white px-3 py-2 text-sm text-[#202d4a] ring-offset-[#ba9669] focus-visible:outline-none focus-visible:border-[#ba9669] focus-visible:ring-1 focus-visible:ring-[#ba9669] disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Tell us about your project..."
           required
         />
@@ -149,7 +149,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex h-10 w-full items-center justify-center rounded-md bg-[#ba9669] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#ba9669]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#1e2b3e] disabled:opacity-50"
+        className="inline-flex h-10 w-full items-center justify-center rounded-md bg-[#ba9669] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#ba9669]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#202d4a] disabled:opacity-50"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>

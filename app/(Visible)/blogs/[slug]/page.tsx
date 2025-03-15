@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 import { notFound, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, CheckCircle, Clock, User, AlertCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  CheckCircle,
+  Clock,
+  User,
+  AlertCircle,
+} from "lucide-react";
 import MarkdownIt from "markdown-it";
 import OmungGupta from "@/public/OmungGupta.jpeg";
 
@@ -14,12 +21,14 @@ const md = new MarkdownIt({
   linkify: true,
   typographer: true,
   breaks: true,
-}).use(require('markdown-it-container'));
+}).use(require("markdown-it-container"));
 
 // Custom renderer to enhance checkmarks and styling
-const defaultRender = md.renderer.rules.text || function(tokens, idx, options, env, self) {
-  return tokens[idx].content;
-};
+const defaultRender =
+  md.renderer.rules.text ||
+  function (tokens, idx, options, env, self) {
+    return tokens[idx].content;
+  };
 
 // Blog post type
 interface BlogPost {
@@ -65,11 +74,11 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
         const related = blogs
           .filter(
             (post) =>
-              post.slug !== slug && 
+              post.slug !== slug &&
               (post.category === currentBlog.category || post.featured)
           )
           .slice(0, 2);
-        
+
         setRelatedPosts(related);
       } catch (error) {
         console.error("Error fetching blog data:", error);
@@ -86,7 +95,7 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#ba9669] border-r-transparent align-[-0.125em]"></div>
-          <p className="mt-4 text-[#1e2b3e]">Loading article...</p>
+          <p className="mt-4 text-[#202d4a]">Loading article...</p>
         </div>
       </div>
     );
@@ -97,23 +106,38 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
   }
 
   const readingTime = Math.ceil(blog.description.split(" ").length / 200); // Rough estimate: 200 words per minute
-  
+
   // Process markdown with custom styling for better rendering
   const processedContent = blog.description
     // Add proper heading structure
-    .replace(/^## /gm, '<h2 class="text-2xl font-bold text-[#1e2b3e] mt-8 mb-4">')
-    .replace(/^### /gm, '<h3 class="text-xl font-bold text-[#1e2b3e] mt-6 mb-3">')
-    .replace(/^#### /gm, '<h4 class="text-lg font-bold text-[#1e2b3e] mt-5 mb-2">')
+    .replace(
+      /^## /gm,
+      '<h2 class="text-2xl font-bold text-[#202d4a] mt-8 mb-4">'
+    )
+    .replace(
+      /^### /gm,
+      '<h3 class="text-xl font-bold text-[#202d4a] mt-6 mb-3">'
+    )
+    .replace(
+      /^#### /gm,
+      '<h4 class="text-lg font-bold text-[#202d4a] mt-5 mb-2">'
+    )
     // Style lists
-    .replace(/- ✅ /g, '<li class="flex items-start mb-3"><span class="text-[#ba9669] mr-2 mt-1 flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></span>')
+    .replace(
+      /- ✅ /g,
+      '<li class="flex items-start mb-3"><span class="text-[#ba9669] mr-2 mt-1 flex-shrink-0"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></span>'
+    )
     // Style regular list items
-    .replace(/^- /gm, '<li class="flex items-start mb-2"><span class="text-[#ba9669] mr-2 mt-1">•</span>');
+    .replace(
+      /^- /gm,
+      '<li class="flex items-start mb-2"><span class="text-[#ba9669] mr-2 mt-1">•</span>'
+    );
 
   return (
     <div className="flex min-h-screen flex-col">
       <main>
         {/* Hero Section */}
-        <section className="relative bg-[#1e2b3e] text-white">
+        <section className="relative bg-[#202d4a] text-white">
           <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
           <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -128,7 +152,9 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
               <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
                 {blog.category}
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-6">{blog.title}</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                {blog.title}
+              </h1>
 
               <div className="flex flex-wrap items-center text-sm text-gray-300 mt-4 mb-6">
                 <div className="flex items-center mr-6 mb-2">
@@ -166,7 +192,7 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
             <div className="prose prose-lg prose-slate max-w-none">
               <style jsx global>{`
                 .prose h2 {
-                  color: #1e2b3e;
+                  color: #202d4a;
                   font-size: 1.75rem;
                   font-weight: 700;
                   margin-top: 2rem;
@@ -175,14 +201,14 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
                   padding-bottom: 0.5rem;
                 }
                 .prose h3 {
-                  color: #1e2b3e;
+                  color: #202d4a;
                   font-size: 1.5rem;
                   font-weight: 600;
                   margin-top: 1.5rem;
                   margin-bottom: 0.75rem;
                 }
                 .prose h4 {
-                  color: #1e2b3e;
+                  color: #202d4a;
                   font-size: 1.25rem;
                   font-weight: 600;
                   margin-top: 1.25rem;
@@ -201,7 +227,7 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
                   margin-bottom: 0.5rem;
                 }
                 .prose strong {
-                  color: #1e2b3e;
+                  color: #202d4a;
                   font-weight: 600;
                 }
                 .prose blockquote {
@@ -228,14 +254,17 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
               `}</style>
               <div
                 className="leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: md.render(blog.description) }}
+                dangerouslySetInnerHTML={{
+                  __html: md.render(blog.description),
+                }}
               />
             </div>
 
             <div className="border-t border-gray-200 mt-12 pt-8">
               <p className="text-sm text-gray-500">
-                Disclaimer: This article provides general information and should not be
-                construed as legal advice. For advice specific to your situation, please consult with a qualified legal professional.
+                Disclaimer: This article provides general information and should
+                not be construed as legal advice. For advice specific to your
+                situation, please consult with a qualified legal professional.
               </p>
             </div>
 
@@ -250,12 +279,15 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
                 />
               </div>
               <div>
-                <h3 className="font-bold text-[#1e2b3e]">Omung Gupta</h3>
-                <p className="text-sm text-[#ba9669]">Barrister and Solicitor</p>
+                <h3 className="font-bold text-[#202d4a]">Omung Gupta</h3>
+                <p className="text-sm text-[#ba9669]">
+                  Barrister and Solicitor
+                </p>
                 <p className="text-sm mt-1">
-                  Omung Gupta specializes in {blog.category.toLowerCase()} law and commercial transactions, 
-                  helping clients navigate complex legal matters with a focus on protecting their 
-                  legal and business interests.
+                  Omung Gupta specializes in {blog.category.toLowerCase()} law
+                  and commercial transactions, helping clients navigate complex
+                  legal matters with a focus on protecting their legal and
+                  business interests.
                 </p>
               </div>
             </div>
@@ -263,13 +295,17 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
         </article>
 
         {/* CTA Section */}
-        <section className="bg-[#1e2b3e] text-white py-12">
+        <section className="bg-[#202d4a] text-white py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Expert Legal Guidance?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Need Expert Legal Guidance?
+              </h2>
               <p className="text-gray-300 mb-6">
-                Contact TRUST LEGAL today for professional advice on your {blog.category.toLowerCase()} matters.
-                Our experienced team will help you navigate complex legal requirements and protect your interests.
+                Contact TRUST LEGAL today for professional advice on your{" "}
+                {blog.category.toLowerCase()} matters. Our experienced team will
+                help you navigate complex legal requirements and protect your
+                interests.
               </p>
               <Link
                 href="/contact"
@@ -286,10 +322,16 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
           <section className="bg-[#f9f9f9] py-12">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-bold text-[#1e2b3e] mb-6">Related Articles</h2>
+                <h2 className="text-2xl font-bold text-[#202d4a] mb-6">
+                  Related Articles
+                </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {relatedPosts.map((post) => (
-                    <Link href={`/blogs/${post.slug}`} className="group" key={post.id}>
+                    <Link
+                      href={`/blogs/${post.slug}`}
+                      className="group"
+                      key={post.id}
+                    >
                       <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <div className="relative h-48">
                           <Image
@@ -303,10 +345,12 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
                           <div className="inline-block rounded-lg bg-[#ba9669]/10 px-3 py-1 text-xs text-[#ba9669] mb-2">
                             {post.category}
                           </div>
-                          <h3 className="font-bold text-[#1e2b3e] group-hover:text-[#ba9669] transition-colors">
+                          <h3 className="font-bold text-[#202d4a] group-hover:text-[#ba9669] transition-colors">
                             {post.title}
                           </h3>
-                          <p className="text-sm text-gray-600 mt-2">{post.excerpt}</p>
+                          <p className="text-sm text-gray-600 mt-2">
+                            {post.excerpt}
+                          </p>
                           <div className="flex items-center mt-4 text-xs text-gray-500">
                             <Calendar className="h-3 w-3 mr-1" />
                             <span>{post.date}</span>

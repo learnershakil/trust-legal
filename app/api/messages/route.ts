@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { Resend } from 'resend';
 
 const prisma = new PrismaClient();
 
@@ -16,6 +17,9 @@ export async function GET() {
 }
 
 // POST - Create a new message
+// Initialize Resend client
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(request: NextRequest) {
   try {
     const { name, email, company, message } = await request.json();
@@ -35,13 +39,28 @@ export async function POST(request: NextRequest) {
         email,
         company,
         message,
-        // Other fields have defaults in the schema:
-        // star: false,
-        // date: now(),
-        // createdAt: now(),
-        // updatedAt: now()
       }
     });
+    
+    // Send email notification
+    try {
+      await resend.emails.send({
+        from: 'message@trustlegal.ca', // Update with your verified domain
+        to: ['learnershakil@gmail.com', 'info@trustlegal.ca'],
+        subject: `New Contact Form Submission from ${name}`,
+        html: `
+          <h1>New Message Received</h1>
+          <p><strong>From:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Company:</strong> ${company}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // Continue processing as the message was saved successfully
+    }
     
     return NextResponse.json(newMessage, { status: 201 });
   } catch (error) {

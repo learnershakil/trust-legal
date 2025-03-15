@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, BarChart3, Globe, Lightbulb, TrendingUp, Users } from "lucide-react"
+import { url } from "inspector"
 
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -33,38 +34,44 @@ export default function ServicesSection() {
       title: "Business Law",
       description:
         "Comprehensive legal solutions for businesses of all sizes, including formation, contracts, compliance, and corporate governance.",
+      url: "practice-areas/business-law",
     },
     {
       icon: <Users className="h-10 w-10" />,
       title: "Litigation",
       description:
         "Skilled representation in all aspects of dispute resolution, from negotiation to trial advocacy across various jurisdictions.",
+      url: "practice-areas/litigation",
     },
     {
       icon: <Globe className="h-10 w-10" />,
       title: "Immigration Law",
       description: "Expert guidance through complex immigration processes, including visas, green cards, and citizenship applications.",
+      url: "practice-areas/immigration",
     },
     {
       icon: <TrendingUp className="h-10 w-10" />,
       title: "Real Estate Law",
       description: "Specialized legal services for property transactions, leasing, development projects, and real estate litigation.",
+      url: "practice-areas/real-estate",
     },
     {
       icon: <Lightbulb className="h-10 w-10" />,
       title: "Corporate Compliance",
       description: "Tailored compliance solutions ensuring your business meets regulatory requirements and industry standards.",
+      url: "practice-areas/corporate-compliance",
     },
     {
       icon: <ArrowRight className="h-10 w-10" />,
       title: "Legal Consultation",
       description:
         "Personalized legal advisory services to navigate complex legal challenges and protect your interests effectively.",
+      url: "practice-areas/legal-consultation",
     },
   ]
 
   return (
-    <section id="services" ref={sectionRef} className="bg-[#1e2b3e] py-16 md:py-24 w-full overflow-hidden">
+    <section id="services" ref={sectionRef} className="bg-[#202d4a] py-16 md:py-24 w-full overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div
           className={`mx-auto max-w-[800px] text-center transition-all duration-700 ${
@@ -83,7 +90,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-lg bg-[#1e2b3e]/80 border border-[#ba9669]/20 p-6 shadow-lg transition-all duration-700 hover:border-[#ba9669]/50 hover:shadow-xl hover:shadow-[#ba9669]/5 ${
+              className={`group relative overflow-hidden rounded-lg bg-[#202d4a]/80 border border-[#ba9669]/20 p-6 shadow-lg transition-all duration-700 hover:border-[#ba9669]/50 hover:shadow-xl hover:shadow-[#ba9669]/5 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: `${150 * index}ms` }}
@@ -92,7 +99,7 @@ export default function ServicesSection() {
               <h3 className="mb-2 text-xl font-bold text-white group-hover:text-[#ba9669] transition-colors duration-300">{service.title}</h3>
               <p className="text-gray-300">{service.description}</p>
               <a 
-                href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                href={`${service.url}`}
                 className="mt-6 inline-flex items-center text-[#ba9669] hover:text-[#dfc19b] transition-colors duration-300"
               >
                 <span className="text-sm font-medium">Learn more</span>

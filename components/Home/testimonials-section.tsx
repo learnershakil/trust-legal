@@ -1,44 +1,46 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
-import Image from "next/image"
-import man1 from "@/public/men1.jpg"
-import man2 from "@/public/men2.jpg"
-import woman from "@/public/women.jpg"
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Image from "next/image";
+import man1 from "@/public/men1.jpg";
+import man2 from "@/public/men2.jpg";
+import woman from "@/public/women.jpg";
 
 export default function TestimonialsSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
+          setIsVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      observer.disconnect()
-    }
-  }, [])
+      observer.disconnect();
+    };
+  }, []);
 
   const nextTestimonial = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
+    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   const testimonials = [
     {
@@ -62,21 +64,29 @@ export default function TestimonialsSection() {
       title: "Director of Operations, Global Solutions Inc.",
       image: man2,
     },
-  ]
-
+  ];
 
   return (
-    <section id="testimonials" ref={sectionRef} className="bg-[#1e2b3e] py-20 md:py-28">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="bg-[#202d4a] py-20 md:py-28"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div
           className={`mx-auto max-w-[800px] text-center transition-all duration-700 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="inline-block border-b-2 border-[#ba9669] px-4 py-2 text-sm font-medium text-[#ba9669]">CLIENT TESTIMONIALS</div>
-          <h2 className="mt-3 text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">Trusted Legal Excellence</h2>
+          <div className="inline-block border-b-2 border-[#ba9669] px-4 py-2 text-sm font-medium text-[#ba9669]">
+            CLIENT TESTIMONIALS
+          </div>
+          <h2 className="mt-3 text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
+            Trusted Legal Excellence
+          </h2>
           <p className="mt-4 text-gray-300 md:text-xl/relaxed">
-            Our clients trust TRUST LEGAL for professional representation in Business Law, Litigation, Immigration, and Real Estate matters.
+            Our clients trust TRUST LEGAL for professional representation in
+            Business Law, Litigation, Immigration, and Real Estate matters.
           </p>
         </div>
 
@@ -84,7 +94,9 @@ export default function TestimonialsSection() {
           <div className="relative w-full max-w-[800px]">
             <div
               className={`transition-all duration-700 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: "300ms" }}
             >
@@ -93,20 +105,28 @@ export default function TestimonialsSection() {
                   <Quote className="h-10 w-10" />
                 </div>
                 <blockquote className="relative pt-6">
-                  <p className="mb-6 text-lg italic text-white">{testimonials[activeIndex].quote}</p>
+                  <p className="mb-6 text-lg italic text-white">
+                    {testimonials[activeIndex].quote}
+                  </p>
                   <div className="h-px w-16 bg-[#ba9669] mb-6"></div>
                   <footer className="flex items-center gap-4">
                     <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-[#ba9669] shadow-lg">
                       <Image
-                        src={testimonials[activeIndex].image || "/placeholder.svg"}
+                        src={
+                          testimonials[activeIndex].image || "/placeholder.svg"
+                        }
                         alt={testimonials[activeIndex].author}
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div>
-                      <p className="font-semibold text-white">{testimonials[activeIndex].author}</p>
-                      <p className="text-sm text-[#ba9669]">{testimonials[activeIndex].title}</p>
+                      <p className="font-semibold text-white">
+                        {testimonials[activeIndex].author}
+                      </p>
+                      <p className="text-sm text-[#ba9669]">
+                        {testimonials[activeIndex].title}
+                      </p>
                     </div>
                   </footer>
                 </blockquote>
@@ -117,7 +137,9 @@ export default function TestimonialsSection() {
                     key={index}
                     onClick={() => setActiveIndex(index)}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      index === activeIndex ? "bg-[#ba9669] w-8" : "bg-gray-500 w-2 hover:bg-[#ba9669]/40"
+                      index === activeIndex
+                        ? "bg-[#ba9669] w-8"
+                        : "bg-gray-500 w-2 hover:bg-[#ba9669]/40"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -142,5 +164,5 @@ export default function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
