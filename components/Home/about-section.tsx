@@ -77,64 +77,64 @@ export default function AboutSection() {
                 </span>
               </h2>
               <p className="max-w-[650px] text-[#202d4a]/80 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                TRUST LEGAL assembles distinguished Lawyer with exceptional
+                TRUST LEGAL assembles distinguished Barristers and Solicitors with exceptional
                 credentials and proven expertise across critical legal
                 disciplines. We deliver sophisticated, tailored legal solutions
-                for individuals, businesses, and institutions, providing
+                for individuals, businesses, and institutions throughout Ontario, providing
                 strategic counsel that safeguards your interests and advances
                 your strategic objectives with the highest standards of
-                professionalism.
+                professionalism in accordance with Law Society of Ontario regulations.
               </p>
             </div>
             <div className="grid gap-6 pt-4 md:grid-cols-2">
-              {[
+                {[
                 {
-                  title: "Corporate & Business Law",
-                  desc: "Sophisticated legal solutions spanning entity formation, governance, compliance, and complex commercial transactions.",
+                  title: "Corporate & Commercial Law",
+                  desc: "Sophisticated legal solutions spanning business structures, governance, compliance, and complex commercial transactions under Ontario legislation.",
                 },
                 {
-                  title: "Litigation & Dispute Resolution",
-                  desc: "Strategic representation in high-stakes litigation with meticulous preparation and compelling advocacy.",
+                  title: "Civil Litigation & Dispute Resolution",
+                  desc: "Strategic representation in high-stakes litigation before Ontario courts with meticulous preparation and compelling advocacy.",
                 },
                 {
-                  title: "Immigration & Global Mobility",
-                  desc: "Comprehensive immigration counsel for multinational corporations, investors, and skilled professionals.",
+                  title: "Immigration & Mobility",
+                  desc: "Comprehensive immigration counsel for businesses, investors, and professionals navigating Canadian and Ontario provincial nominee programs.",
                 },
                 {
                   title: "Real Estate & Property",
-                  desc: "Expert guidance for commercial and residential acquisitions, development, leasing, and regulatory compliance.",
+                  desc: "Expert guidance for commercial and residential transactions, land development, leasing, and compliance with Ontario property regulations.",
                 },
-              ].map((item, i) => (
+                ].map((item, i) => (
                 <div
                   key={i}
                   className="group space-y-2.5 rounded-xl border border-[#202d4a]/10 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#ba9669]/40 hover:shadow-md"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="rounded-full bg-gradient-to-r from-[#ba9669]/20 to-[#d4b78e]/30 p-2.5 group-hover:from-[#ba9669]/30 group-hover:to-[#d4b78e]/40 transition-all duration-300">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4 text-[#ba9669]"
-                      >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                    </div>
-                    <h3 className="font-semibold text-[#1a2537] group-hover:text-[#ba9669] transition-colors duration-300">
-                      {item.title}
-                    </h3>
+                  <div className="rounded-full bg-gradient-to-r from-[#ba9669]/20 to-[#d4b78e]/30 p-2.5 group-hover:from-[#ba9669]/30 group-hover:to-[#d4b78e]/40 transition-all duration-300">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4 text-[#ba9669]"
+                    >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-[#1a2537] group-hover:text-[#ba9669] transition-colors duration-300">
+                    {item.title}
+                  </h3>
                   </div>
                   <p className="text-sm leading-relaxed text-[#202d4a]/70 pl-10">
-                    {item.desc}
+                  {item.desc}
                   </p>
                 </div>
-              ))}
+                ))}
             </div>
             <div className="pt-2">
               <Link href="/practice-areas">

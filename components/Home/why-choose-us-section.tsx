@@ -29,25 +29,25 @@ export default function WhyChooseUsSection() {
       icon: <Shield className="h-12 w-12 text-[#ba9669]" />,
       title: "Legal Excellence",
       description:
-        "Our Lawyer bring decades of combined experience across multiple legal disciplines.",
+        "Our Barristers and Solicitors bring decades of combined experience across multiple legal disciplines in Ontario.",
     },
     {
       icon: <Scale className="h-12 w-12 text-[#ba9669]" />,
       title: "Client-Focused Approach",
       description:
-        "We're committed to providing personalized attention and tailored solutions to each client.",
+        "We're committed to providing personalized attention and tailored solutions to each client throughout Ontario.",
     },
     {
       icon: <Trophy className="h-12 w-12 text-[#ba9669]" />,
       title: "Proven Results",
       description:
-        "Our track record of successful outcomes speaks to our dedication and expertise.",
+        "Our track record of successful outcomes in Ontario courts and tribunals speaks to our dedication and expertise.",
     },
     {
       icon: <Clock className="h-12 w-12 text-[#ba9669]" />,
       title: "Responsive Service",
       description:
-        "We understand the urgency of legal matters and provide timely communication.",
+        "We understand the urgency of legal matters under Ontario law and provide timely communication.",
     },
   ];
 
@@ -70,11 +70,11 @@ export default function WhyChooseUsSection() {
               <span className="absolute bottom-1 left-0 w-full h-1 bg-[#ba9669]/20 rounded-full"></span>
             </span>
           </h2>
-          <p className="mt-6 text-lg text-[#202d4a]/70 leading-relaxed">
+            <p className="mt-6 text-lg text-[#202d4a]/70 leading-relaxed">
             TRUST LEGAL is committed to providing exceptional legal services
             with integrity, professionalism, and a dedication to achieving
-            optimal results for our clients.
-          </p>
+            optimal results for our Ontario clients under Canadian law.
+            </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">

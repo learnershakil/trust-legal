@@ -33,39 +33,39 @@ export default function ServicesSection() {
       icon: <BarChart3 className="h-10 w-10" />,
       title: "Business Law",
       description:
-        "Comprehensive legal solutions for businesses of all sizes, including formation, contracts, compliance, and corporate governance.",
+        "Comprehensive legal solutions for businesses throughout Ontario, including incorporation, contracts, compliance, and corporate governance.",
       url: "practice-areas/business-law",
     },
     {
       icon: <Users className="h-10 w-10" />,
       title: "Litigation",
       description:
-        "Skilled representation in all aspects of dispute resolution, from negotiation to trial advocacy across various jurisdictions.",
+        "Skilled representation in all aspects of dispute resolution, from negotiation to trial advocacy in Ontario courts and tribunals.",
       url: "practice-areas/litigation",
     },
     {
       icon: <Globe className="h-10 w-10" />,
       title: "Immigration Law",
-      description: "Expert guidance through complex immigration processes, including visas, green cards, and citizenship applications.",
+      description: "Expert guidance through Canadian immigration processes, including work permits, permanent residence, and citizenship applications.",
       url: "practice-areas/immigration",
     },
     {
       icon: <TrendingUp className="h-10 w-10" />,
       title: "Real Estate Law",
-      description: "Specialized legal services for property transactions, leasing, development projects, and real estate litigation.",
+      description: "Specialized legal services for Ontario property transactions, leasing, development projects, and land disputes.",
       url: "practice-areas/real-estate",
     },
     {
       icon: <Lightbulb className="h-10 w-10" />,
-      title: "Corporate Compliance",
-      description: "Tailored compliance solutions ensuring your business meets regulatory requirements and industry standards.",
-      url: "practice-areas/corporate-compliance",
+      title: "Regulatory Compliance",
+      description: "Tailored compliance solutions ensuring your business meets Ontario and federal regulatory requirements and industry standards.",
+      url: "practice-areas/regulatory-compliance",
     },
     {
       icon: <ArrowRight className="h-10 w-10" />,
       title: "Legal Consultation",
       description:
-        "Personalized legal advisory services to navigate complex legal challenges and protect your interests effectively.",
+        "Personalized legal advisory services to navigate Ontario's legal landscape and protect your interests effectively.",
       url: "practice-areas/legal-consultation",
     },
   ]

@@ -16,35 +16,35 @@ export default function RealEstatePage() {
     {
       title: "Commercial Property Transactions",
       description:
-        "Comprehensive legal counsel for the purchase, sale, and leasing of commercial properties, including office buildings, retail spaces, and industrial properties.",
+        "Comprehensive legal counsel through our specialized team for the purchase, sale, and leasing of commercial properties in Ontario, including office buildings, retail spaces, and industrial properties.",
       icon: <Building className="h-6 w-6" />,
       details: [
-        "Purchase and sale agreements",
+        "Agreement of purchase and sale",
         "Commercial lease negotiations",
         "Property development contracts",
         "Financing documentation",
         "Due diligence coordination",
-        "Closing procedures",
+        "Completion procedures",
       ],
     },
     {
       title: "Residential Real Estate",
       description:
-        "Expert guidance through residential property transactions, ensuring smooth closings while protecting your interests throughout the process.",
+        "Expert guidance through our dedicated team for residential property transactions in Ontario, ensuring smooth completions while protecting your interests throughout the process.",
       icon: <Building2 className="h-6 w-6" />,
       details: [
         "Home purchase and sale",
         "Condominium transactions",
         "New construction purchases",
         "Residential lease reviews",
-        "Title examination",
+        "Title searches",
         "Mortgage documentation",
       ],
     },
     {
       title: "Lease Agreements",
       description:
-        "Drafting, review, and negotiation of lease agreements that protect your interests as either a landlord or tenant in commercial or residential properties.",
+        "Our real estate team handles drafting, review, and negotiation of lease agreements that protect your interests as either a landlord or tenant in Ontario commercial or residential properties.",
       icon: <FileText className="h-6 w-6" />,
       details: [
         "Commercial lease drafting",
@@ -58,7 +58,7 @@ export default function RealEstatePage() {
     {
       title: "Title Review & Due Diligence",
       description:
-        "Thorough investigation of property titles and comprehensive due diligence to identify and resolve potential issues before closing.",
+        "Thorough investigation of property titles by our team and comprehensive due diligence to identify and resolve potential issues before completion.",
       icon: <Shield className="h-6 w-6" />,
       details: [
         "Title searches",
@@ -72,7 +72,7 @@ export default function RealEstatePage() {
     {
       title: "Land Development",
       description:
-        "Legal support for developers throughout the land development process, from acquisition through construction and eventual sale or leasing.",
+        "Our specialized real estate team provides legal support for developers throughout the land development process in Ontario, from acquisition through construction and eventual sale or leasing.",
       icon: <Map className="h-6 w-6" />,
       details: [
         "Development agreements",
@@ -86,7 +86,7 @@ export default function RealEstatePage() {
     {
       title: "Real Estate Disputes",
       description:
-        "Effective representation in various real estate disputes, with a focus on efficient resolution while protecting your property rights.",
+        "Our dedicated team provides effective representation in various Ontario real estate disputes, with a focus on efficient resolution while protecting your property rights.",
       icon: <Ruler className="h-6 w-6" />,
       details: [
         "Boundary disputes",
@@ -102,26 +102,26 @@ export default function RealEstatePage() {
   const realEstateFAQs = [
     {
       question:
-        "What should I expect during the closing process for a property purchase?",
+        "What should I expect during the completion process for an Ontario property purchase?",
       answer:
-        "The closing process typically involves several steps: final document review, title search verification, funds transfer arrangements, closing disclosure review, final property inspection, and document signing. As your legal representative, we coordinate with all parties—including lenders, agents, and opposing counsel—to ensure all conditions are met, funds are properly transferred, and all legal documents are accurately prepared and executed. We attend the closing with you to review all documents before signing, ensuring your interests are protected throughout the process.",
+        "The completion process in Ontario typically involves several steps: final document review, title search verification, funds transfer arrangements, statement of adjustments review, final property inspection, and document signing. Our specialized real estate team coordinates with all parties—including lenders, agents, and opposing solicitors—to ensure all conditions are met, funds are properly transferred, and all legal documents are accurately prepared and executed. A member of our team attends the completion with you to review all documents before signing, ensuring your interests are protected throughout the process.",
     },
     {
       question:
-        "What issues might arise during a title search and how do you address them?",
+        "What issues might arise during a title search in Ontario and how does your team address them?",
       answer:
-        "Title searches can reveal various issues including liens, easements, encroachments, survey discrepancies, ownership disputes, or improper prior conveyances. When issues arise, we first thoroughly analyze their impact on your transaction and property rights. Depending on the situation, we may negotiate with the seller for resolution, work with title insurance companies on coverage exceptions, prepare curative documents like quitclaim deeds, or recommend specific legal actions to clear the title. Our goal is to ensure you receive clear title to your property with all issues properly addressed before closing.",
+        "Title searches in Ontario can reveal various issues including liens, easements, encroachments, survey discrepancies, ownership disputes, or improper prior conveyances. When issues arise, our specialized team thoroughly analyzes their impact on your transaction and property rights. Depending on the situation, we may negotiate with the seller for resolution, work with title insurance companies on coverage exceptions, prepare curative documents like quitclaim deeds, or recommend specific legal actions to clear the title. Our team's goal is to ensure you receive clear title to your property with all issues properly addressed before completion.",
     },
     {
       question:
-        "How do commercial real estate transactions differ from residential purchases?",
+        "How do commercial real estate transactions differ from residential purchases in Ontario?",
       answer:
-        "Commercial transactions generally involve more complex due diligence, including environmental assessments, zoning compliance, usage restrictions, and tenant rights review. The financing structures typically differ, with commercial loans having different terms and requirements. Commercial agreements often have more negotiable terms and contingencies than standardized residential contracts. The closing process usually involves additional documentation, and the legal liability considerations are more complex. Given these differences, commercial transactions generally require more specialized legal expertise to navigate effectively.",
+        "In Ontario, commercial transactions generally involve more complex due diligence, including environmental assessments, zoning compliance, usage restrictions, and tenant rights review. The financing structures typically differ, with commercial loans having different terms and requirements. Commercial agreements often have more negotiable terms and contingencies than standardized residential contracts. The completion process usually involves additional documentation related to HST and the legal liability considerations are more complex. Our specialized real estate team has the expertise to navigate these differences effectively.",
     },
     {
-      question: "What should I know about purchasing investment property?",
+      question: "What should I know about purchasing investment property in Ontario?",
       answer:
-        "Investment property purchases require consideration of several unique factors: optimal ownership structure (individual, partnership, or corporation), tax implications including depreciation benefits and capital gains treatment, financing options specific to investment properties, tenant rights for properties with existing tenants, rental income verification, property management planning, and local regulations affecting rental properties. We help investors address these considerations upfront, structure their purchase appropriately, and establish proper legal protections to maximize their return while minimizing potential liability.",
+        "Investment property purchases in Ontario require consideration of several unique factors: optimal ownership structure (individual, partnership, or corporation), tax implications including capital cost allowance and HST, financing options specific to investment properties, tenant rights under the Residential Tenancies Act, rental income verification, property management planning, and municipal regulations affecting rental properties. Our dedicated real estate team helps investors address these considerations upfront, structure their purchase appropriately, and establish proper legal protections to maximize their return while minimizing potential liability.",
     },
   ];
 
@@ -140,13 +140,13 @@ export default function RealEstatePage() {
                 Real Estate Law
               </h1>
               <p className="text-lg md:text-xl text-gray-300 mb-8">
-                Thorough legal counsel for all aspects of residential and
+                Through our dedicated team, we provide thorough legal counsel for all aspects of Ontario residential and
                 commercial real estate transactions, ensuring your property
                 interests are protected.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
                 >
                   Schedule a Consultation
@@ -171,23 +171,23 @@ export default function RealEstatePage() {
                   Expertise
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">
-                  Navigating Real Estate Transactions with Confidence
+                  Navigating Ontario Real Estate Transactions with Confidence
                 </h2>
                 <p className="text-[#202d4a]/70 mb-6">
-                  At TRUST LEGAL, we understand that real estate transactions
+                  At TRUST LEGAL, we have assembled a specialized real estate team that understands Ontario property transactions
                   represent significant investments and important milestones,
                   whether for individuals or businesses. Our real estate
                   practice combines legal expertise with practical knowledge of
-                  the property market to guide clients through complex
+                  the Ontario property market to guide clients through complex
                   transactions.
                 </p>
                 <p className="text-[#202d4a]/70 mb-6">
-                  Our team of qualified real estate lawyers provides detailed
+                  Our team of qualified real estate professionals provides detailed
                   attention to every aspect of property transactions, from
-                  initial contract review through due diligence and closing. Our
-                  experienced attorneys anticipate potential issues before they arise
+                  initial agreement of purchase and sale through due diligence and completion. Our
+                  experienced solicitors anticipate potential issues before they arise
                   and ensure your real estate dealings proceed smoothly while 
-                  protecting your interests.
+                  protecting your interests under Ontario law.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   {[
@@ -195,8 +195,8 @@ export default function RealEstatePage() {
                     "Clear title assurance",
                     "Contract protection",
                     "Risk minimization",
-                    "Regulatory compliance",
-                    "Smooth closing process",
+                    "Ontario regulatory compliance",
+                    "Smooth completion process",
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-2">
                       <div className="rounded-full bg-[#ba9669]/20 p-1 text-[#ba9669] mt-1">
@@ -209,7 +209,7 @@ export default function RealEstatePage() {
               </div>
               <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="/images/real-estate-law.jpg"
+                  src="/real-estate-law.jpg"
                   alt="Real Estate Services"
                   fill
                   className="object-cover"
@@ -227,12 +227,12 @@ export default function RealEstatePage() {
                 Our Services
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a]">
-                Comprehensive Real Estate Services
+                Comprehensive Ontario Real Estate Services
               </h2>
               <p className="mt-4 text-[#202d4a]/70 max-w-3xl mx-auto">
                 From residential purchases to complex commercial developments,
-                our real estate practice offers complete legal support for all
-                your property transactions.
+                our specialized real estate team offers complete legal support for all
+                your property transactions in Ontario.
               </p>
             </div>
 
@@ -296,12 +296,12 @@ export default function RealEstatePage() {
                 Our Process
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a]">
-                Real Estate Transaction Journey
+                Ontario Real Estate Transaction Journey
               </h2>
               <p className="mt-4 text-[#202d4a]/70 max-w-3xl mx-auto">
-                Our structured approach ensures thorough handling of every
-                aspect of your real estate transaction from initial agreement to
-                final closing.
+                Our specialized team&apos;s structured approach ensures thorough handling of every
+                aspect of your Ontario real estate transaction from initial agreement to
+                final completion.
               </p>
             </div>
 
@@ -309,27 +309,27 @@ export default function RealEstatePage() {
               {[
                 {
                   icon: <FileText className="h-6 w-6" />,
-                  title: "Contract Review",
+                  title: "Agreement Review",
                   description:
-                    "We meticulously review all contract terms to ensure your interests are protected and potential issues are addressed upfront.",
+                    "Our real estate team meticulously reviews all agreement terms to ensure your interests are protected and potential issues are addressed upfront.",
                 },
                 {
                   icon: <Shield className="h-6 w-6" />,
                   title: "Due Diligence",
                   description:
-                    "We conduct comprehensive due diligence including title searches, survey reviews, and regulatory compliance verification.",
+                    "Our specialists conduct comprehensive due diligence including title searches, survey reviews, and Ontario regulatory compliance verification.",
                 },
                 {
                   icon: <Building className="h-6 w-6" />,
                   title: "Negotiation & Resolution",
                   description:
-                    "We negotiate necessary terms and resolve any issues discovered during the due diligence process.",
+                    "Our team negotiates necessary terms and resolves any issues discovered during the due diligence process.",
                 },
                 {
                   icon: <Map className="h-6 w-6" />,
-                  title: "Closing & Transfer",
+                  title: "Completion & Transfer",
                   description:
-                    "We prepare and review all closing documents, attend closing, and ensure proper transfer of title and funds.",
+                    "Our real estate experts prepare and review all completion documents, attend closing, and ensure proper transfer of title and funds.",
                 },
               ].map((step, index) => (
                 <div key={index} className="relative">
@@ -361,10 +361,10 @@ export default function RealEstatePage() {
                 Benefits
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Why Choose Our Real Estate Services
+                Why Choose Our Real Estate Team
               </h2>
               <p className="text-gray-300 max-w-3xl mx-auto">
-                Our comprehensive approach to real estate law provides distinct
+                Our specialized team&apos;s comprehensive approach to Ontario real estate law provides distinct
                 advantages that protect your investment and ensure smooth
                 transactions.
               </p>
@@ -375,32 +375,32 @@ export default function RealEstatePage() {
                 {
                   title: "Transaction Security",
                   description:
-                    "Ensure your property transaction proceeds with proper legal protection, clear contract terms, and thorough documentation.",
+                    "Our team ensures your Ontario property transaction proceeds with proper legal protection, clear contract terms, and thorough documentation.",
                 },
                 {
                   title: "Risk Mitigation",
                   description:
-                    "Identify and address potential issues before they become problems through comprehensive due diligence and careful review.",
+                    "Our specialists identify and address potential issues before they become problems through comprehensive due diligence and careful review.",
                 },
                 {
-                  title: "Regulatory Compliance",
+                  title: "Ontario Regulatory Compliance",
                   description:
-                    "Navigate complex real estate regulations with confidence, ensuring your transaction meets all legal requirements.",
+                    "Our real estate team helps you navigate complex Ontario real estate regulations with confidence, ensuring your transaction meets all provincial and municipal requirements.",
                 },
                 {
-                  title: "Efficient Closings",
+                  title: "Efficient Completions",
                   description:
-                    "Experience smooth, timely closings with all documentation properly prepared and all parties' obligations clearly defined.",
+                    "Experience smooth, timely completions with all documentation properly prepared and all parties' obligations clearly defined by our dedicated team.",
                 },
                 {
                   title: "Long-term Protection",
                   description:
-                    "Secure your property investment with properly structured agreements that protect your interests now and in the future.",
+                    "Our specialists help secure your property investment with properly structured agreements that protect your interests now and in the future.",
                 },
                 {
                   title: "Peace of Mind",
                   description:
-                    "Proceed with confidence knowing experienced real estate Lawyer are protecting your interests throughout every step of the process.",
+                    "Proceed with confidence knowing our experienced real estate team is protecting your interests throughout every step of the Ontario property transaction process.",
                 },
               ].map((benefit, index) => (
                 <div
@@ -449,16 +449,16 @@ export default function RealEstatePage() {
         <section className="py-16 md:py-24 bg-[#202d4a] text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Discuss Your Real Estate Needs?
+              Ready to Discuss Your Ontario Real Estate Needs?
             </h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Contact TRUST LEGAL today to schedule a consultation with our real
-              estate law team. Whether you&apos;re buying, selling, leasing, or
-              developing property, we&apos;ll help you navigate the process with
+              Contact TRUST LEGAL today to schedule a consultation with our dedicated real
+              estate team. Whether you&apos;re buying, selling, leasing, or
+              developing property in Ontario, we&apos;ll connect you with our specialized team who will help you navigate the process with
               confidence.
             </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="inline-flex items-center justify-center px-8 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
             >
               Schedule a Consultation

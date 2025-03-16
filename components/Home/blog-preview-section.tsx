@@ -37,7 +37,27 @@ export default function BlogPreviewSection() {
       slug: "business-incorporation-ontario",
       image: "/business.jpg",
     },
-      ];
+    {
+      id: 2,
+      title: "Partnership vs. Corporation: Which is Right for You?",
+      excerpt:
+        "Explore the pros and cons of different business structures to make an informed decision for your venture.",
+      date: "March 15, 2025",
+      category: "Business Law",
+      slug: "partnership-vs-corporation",
+      image: "/partnership.jpg",
+    },
+    {
+      id: 3,
+      title: "Study in Canada: How to Get a Student Visa",
+      excerpt: 
+        "A comprehensive guide to navigating the Canadian student visa application process.",
+      date: "March 17, 2025",
+      category: "Immigration",
+      slug: "student-visa-canada",
+      image: "/canada-study.jpg",
+    },
+  ];
 
   return (
     <section id="blog-preview" className="py-16 md:py-24 bg-white">

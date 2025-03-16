@@ -109,7 +109,7 @@ export default function LegalConsultationPage() {
               <p className="text-[#202d4a]/70 text-lg">
                 Our consultation services are tailored to meet your specific
                 needs, whether you require one-time advice or ongoing legal
-                support. Our experienced Lawyers provide clear, actionable
+                support. Our experienced Barristers and Solicitors provide clear, actionable
                 guidance to help you navigate complex legal challenges with
                 confidence.
               </p>
@@ -157,14 +157,14 @@ export default function LegalConsultationPage() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                       <Link
                         href={`/legal-consultation/${type.id}`}
                         className="inline-flex items-center text-[#ba9669] hover:text-[#ba9669]/80 font-medium transition-colors"
                       >
                         Learn More <ChevronRight className="ml-1 h-4 w-4" />
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))}
@@ -223,7 +223,7 @@ export default function LegalConsultationPage() {
                         Consultation Session
                       </h3>
                       <p className="text-[#202d4a]/70">
-                        Meet with our experienced Lawyers who will listen
+                        Meet with our experienced Barristers and Solicitors who will listen
                         carefully, analyze your situation, and discuss legal
                         options.
                       </p>
@@ -264,7 +264,7 @@ export default function LegalConsultationPage() {
                       Comprehensive Analysis
                     </p>
                     <p className="text-[#202d4a]/70">
-                      During your consultation, our Lawyers conduct a thorough
+                      During your consultation, our legal professionals conduct a thorough
                       analysis of your legal matter, identifying potential
                       challenges and opportunities. This in-depth approach
                       ensures you receive comprehensive guidance for informed
@@ -278,19 +278,19 @@ export default function LegalConsultationPage() {
                         SUNITA PATEL
                       </p>
                       <p className="text-sm text-[#202d4a]/70">
-                        SENIOR LEGAL COUNSEL
+                        SENIOR BARRISTER & SOLICITOR
                       </p>
                     </div>
                     <p className="italic text-[#202d4a]/70">
                       &quot;The initial consultation is the foundation of a
-                      successful Lawyer-client relationship. It&apos;s where we
+                      successful solicitor-client relationship. It&apos;s where we
                       build understanding and trust that carries throughout our
                       representation.&quot;
                     </p>
                   </div>
 
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors w-full"
                   >
                     Schedule Your Consultation
@@ -344,8 +344,8 @@ export default function LegalConsultationPage() {
                   Is my consultation confidential?
                 </h3>
                 <p className="text-[#202d4a]/70">
-                  Absolutely. All consultations with our Lawyers are protected
-                  by Lawyer-client privilege. Information shared during your
+                  Absolutely. All consultations with our legal team are protected
+                  by solicitor-client privilege. Information shared during your
                   consultation remains strictly confidential, regardless of
                   whether you ultimately retain our services.
                 </p>
@@ -357,7 +357,7 @@ export default function LegalConsultationPage() {
                 </h3>
                 <p className="text-[#202d4a]/70">
                   Consultation fees vary based on the type of legal matter and
-                  the Lawyer&apos;s expertise. Some consultations may be offered
+                  the legal professional&apos;s expertise. Some consultations may be offered
                   at a flat rate, while others might be provided at an hourly
                   rate. In certain practice areas, we offer complimentary
                   initial consultations. Please contact our office for specific
@@ -377,11 +377,11 @@ export default function LegalConsultationPage() {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Take the first step toward resolving your legal concerns by
               scheduling a consultation with TRUST LEGAL. Our experienced
-              Lawyers are ready to provide the clear guidance and strategic
+              Barristers and Solicitors are ready to provide the clear guidance and strategic
               advice you need.
             </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="inline-flex items-center justify-center px-8 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
             >
               Book a Consultation

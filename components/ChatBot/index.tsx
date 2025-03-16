@@ -135,7 +135,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onClose }) => {
           margin-bottom: 0.25rem;
         }
         .markdown a {
-          color: #4f46e5;
+          color: #202d4a;
           text-decoration: underline;
         }
         .markdown code {
@@ -183,7 +183,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onClose }) => {
       `}</style>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] text-white p-3 flex justify-between items-center shadow-md">
+      <div className="bg-gradient-to-r from-[#202d4a] to-[#ba9669] text-white p-3 flex justify-between items-center shadow-md">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center shadow-inner">
             <BotIcon size={18} className="text-white" />
@@ -249,15 +249,15 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onClose }) => {
             <div className="bg-white dark:bg-[#f8fafc]/10 backdrop-blur-sm text-gray-800 dark:text-gray-100 border border-[#ba9669]/20 p-3 rounded-2xl rounded-tl-none shadow-md">
               <div className="flex space-x-2">
                 <div
-                  className="h-2 w-2 bg-[#4f46e5] rounded-full animate-bounce"
+                  className="h-2 w-2 bg-[#202d4a] rounded-full animate-bounce"
                   style={{ animationDelay: "0s" }}
                 ></div>
                 <div
-                  className="h-2 w-2 bg-[#4f46e5] rounded-full animate-bounce"
+                  className="h-2 w-2 bg-[#202d4a] rounded-full animate-bounce"
                   style={{ animationDelay: "0.2s" }}
                 ></div>
                 <div
-                  className="h-2 w-2 bg-[#4f46e5] rounded-full animate-bounce"
+                  className="h-2 w-2 bg-[#202d4a] rounded-full animate-bounce"
                   style={{ animationDelay: "0.4s" }}
                 ></div>
               </div>
@@ -286,7 +286,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ isOpen, onClose }) => {
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] text-white p-2 rounded-full hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#ba9669] disabled:opacity-50 transition-all duration-200 shadow-md"
+            className="bg-gradient-to-r from-[#202d4a] to-[#ba9669] text-white p-2 rounded-full hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#ba9669] disabled:opacity-50 transition-all duration-200 shadow-md"
           >
             <SendIcon size={18} />
           </button>

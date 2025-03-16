@@ -14,7 +14,7 @@ export default function ChatBotWrapper() {
         <>
             {/* Chat Toggle Button */}
             <button
-                className="fixed bottom-14 right-10 w-12 h-12 bg-indigo-600 text-white rounded-full shadow-lg flex items-center justify-center text-2xl hover:bg-indigo-700 focus:outline-none z-50"
+                className="fixed bottom-14 right-10 w-12 h-12 bg-[#ba9669] text-white rounded-full shadow-lg flex items-center justify-center text-2xl hover:[#202d4a] focus:outline-none z-50"
                 onClick={handleToggleChat}
                 aria-label="Toggle chat"
             >

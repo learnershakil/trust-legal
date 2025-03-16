@@ -32,8 +32,51 @@ export default function BlogPage() {
       category: "Business Law",
       slug: "business-incorporation-ontario",
       image: "/business.jpg",
+      featured: false
+    },{
+      id: 2,
+      title: "Partnership vs. Corporation: Which is Right for You?",
+      excerpt:
+        "Explore the pros and cons of different business structures to make an informed decision for your venture.",
+      date: "March 15, 2025",
+      category: "Business Law",
+      slug: "partnership-vs-corporation",
+      image: "/partnership.jpg",
       featured: true
     },
+    {
+      id: 3,
+      title: "Study in Canada: How to Get a Student Visa",
+      excerpt: 
+        "A comprehensive guide to navigating the Canadian student visa application process.",
+      date: "March 17, 2025",
+      category: "Immigration",
+      slug: "student-visa-canada",
+      image: "/canada-study.jpg",
+      featured: true
+    },
+    {
+      id: 4,
+      title: "The Role of a Real Estate Lawyer in Property Transactions",
+      excerpt: 
+        "Understanding how a real estate lawyer can protect your interests and ensure a smooth property transaction process.",
+      date: "March 25, 2025",
+      category: "Real Estate",
+      slug: "real-estate-lawyer-property-transactions",
+      image: "/real-estate-law.jpg",
+      featured: false
+    },
+    {
+      id: 5,
+      title: "Landlord vs. Tenant Rights in Ontario",
+      excerpt: 
+        "A detailed overview of the legal rights and responsibilities of both landlords and tenants under Ontario law.",
+      date: "April 2, 2025",
+      category: "Real Estate",
+      slug: "landlord-tenant-rights-ontario",
+      image: "/landlord-tenant.jpg",
+      featured: false
+    }
   ];
 
 

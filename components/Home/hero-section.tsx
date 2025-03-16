@@ -46,12 +46,12 @@ export default function HeroSection() {
                 Trusted Legal Expertise for Businesses and Individuals Who
                 Demand Excellence
               </h1>
-              <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Distinguished expertise in Business Law, Litigation,
+                <p className="max-w-[600px] text-gray-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Distinguished expertise in Corporate Law, Civil Litigation,
                 Immigration, and Real Estate—providing meticulous,
                 results-oriented legal counsel tailored to your strategic
-                objectives.
-              </p>
+                objectives across Ontario.
+                </p>
             </div>
             <div className="flex flex-col gap-4 min-[400px]:flex-row">
               <button
@@ -91,14 +91,14 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
 
               {/* Professional badge */}
-              <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm rounded-full px-5 py-1.5 shadow-lg text-xs font-medium text-[#192841] border border-[#9e814d]/20">
-                Board Certified Lawyer
-              </div>
+                <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm rounded-full px-5 py-1.5 shadow-lg text-xs font-medium text-[#192841] border border-[#9e814d]/20">
+                Licensed by the Law Society of Ontario
+                </div>
 
               <div className="absolute bottom-6 left-6 right-6 rounded-lg bg-[#192841]/50 p-6 backdrop-blur-md border border-white/10 transform transition-all duration-500 group-hover:translate-y-0 translate-y-1 opacity-95 group-hover:opacity-100">
                 <p className="text-sm font-medium text-white leading-relaxed drop-shadow-md">
-                  Delivering strategic, forward-thinking legal counsel with
-                  unwavering commitment to your success
+                  Delivering strategic, forward-thinking legal advice with
+                  unwavering commitment to your success in Ontario
                 </p>
               </div>
             </div>

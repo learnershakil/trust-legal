@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import x from "@/public/x.png";
+import Facebook from "@/public/facebook.png";
+import Instagram from "@/public/instagram.png";
+import Linkedin from "@/public/linkedin.png";
 
 export default function Footer() {
   return (
@@ -12,25 +16,38 @@ export default function Footer() {
             </h3>
             <p className="max-w-[280px] text-sm leading-relaxed text-gray-600">
               Reliable legal solutions for businesses and individuals with
-              expertise in Business Law, Litigation, Immigration, and Real
-              Estate.
+              expertise in Ontario Business Law, Civil Litigation, Immigration,
+              and Real Estate.
             </p>
             <div className="flex space-x-5 pt-2">
-              {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Twitter, label: "Twitter" },
-                { icon: Instagram, label: "Instagram" },
-                { icon: Linkedin, label: "LinkedIn" },
-              ].map((social, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="text-[#202d4a] hover:text-[#ba9669] transition-all duration-300 hover:scale-110"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5" />
-                </Link>
-              ))}
+              {/* <Link
+                href="#"
+                className="text-[#202d4a] transition-all duration-300 hover:scale-110"
+                aria-label="facebook"
+              >
+                <Image src={Facebook} alt="Facebook" className="h-5 w-5" />
+              </Link> */}
+              <Link
+                href="https://www.instagram.com/trust.legal.ca"
+                className="text-[#202d4a] transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Image src={Instagram} alt="Instagram" className="h-5 w-5" />
+              </Link>
+              {/* <Link
+                href="#"
+                className="text-[#202d4a] transition-all duration-300 hover:scale-110"
+                aria-label="X"
+              >
+                <Image src={x} alt="X" className="h-5 w-5" />
+              </Link> */}
+              <Link
+                href="https://www.linkedin.com/company/trust-legal-ca/"
+                className="text-[#202d4a] transition-all duration-300 hover:scale-110"
+                aria-label="Linkedin"
+              >
+                <Image src={Linkedin} alt="Linkedin" className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
@@ -38,10 +55,10 @@ export default function Footer() {
             {
               title: "Practice Areas",
               links: [
-                "Business Law",
-                "Corporate Litigation",
-                "Immigration Services",
-                "Real Estate Law",
+                "Ontario Business Law",
+                "Civil Litigation",
+                "Canadian Immigration",
+                "Ontario Real Estate Law",
                 "Contract Review",
               ],
             },
@@ -51,7 +68,7 @@ export default function Footer() {
                 "About Us",
                 "Our Lawyer",
                 "Careers",
-                "Legal Resources",
+                "Ontario Legal Resources",
                 "Contact",
               ],
             },
@@ -88,7 +105,7 @@ export default function Footer() {
               All rights reserved.
             </p>
             <p className="text-xs text-gray-500 mt-2 md:mt-0">
-              Professional Legal Services & Consultation
+              Professional Legal Services & Consultation in Ontario
             </p>
           </div>
         </div>
