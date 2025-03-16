@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     try {
       const response = await mg.messages.create("sandbox3b5e4ee972f7419a9733846867b9fb99.mailgun.org", {
         from: "Mailgun Sandbox <postmaster@sandbox3b5e4ee972f7419a9733846867b9fb99.mailgun.org>",
-        to: ["SHAKIL AHMAD <learnershakil@gmail.com>"],
+        to: ["TRUST LEGAL <info@trustlegal.ca>"],
         subject: "New Message from Contact Form",
         html: `
           <!DOCTYPE html>
