@@ -97,16 +97,38 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600">
-              &copy; {new Date().getFullYear()}{" "}
-              <span className="text-[#ba9669] font-medium">TRUST LEGAL</span>.
-              All rights reserved.
-            </p>
-            <p className="text-xs text-gray-500 mt-2 md:mt-0">
-              Professional Legal Services & Consultation in Ontario
-            </p>
+        <div className="mt-10 pt-8 border-t border-gray-200">
+          <div className="flex flex-col gap-6">
+            {/* Law Society Badge */}
+            <div className="flex items-center">
+              <svg viewBox="0 0 40 40" className="w-9 h-9 text-[#ba9669]">
+                <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+              <div className="border-l border-gray-300 pl-4 ml-4 flex items-center">
+                <div className="text-sm font-medium text-[#202d4a]">
+                  <div>Law Society</div>
+                  <div>of Ontario</div>
+                </div>
+                <div className="mx-4 h-8 w-px bg-gray-300"></div>
+                <div className="text-sm font-medium text-[#202d4a]">
+                  <div>Barreau</div>
+                  <div>de l&apos;Ontario</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Copyright and Disclaimer */}
+            <div>
+              <p className="text-sm text-gray-700 mb-2">
+                &copy; {new Date().getFullYear()} <span className="font-medium text-[#ba9669]">TRUST LEGAL</span>. All rights reserved.
+              </p>
+              <p className="text-xs leading-relaxed text-gray-600">
+                DISCLAIMER: The information provided is for informational purposes only and does not constitute legal advice. 
+                No solicitor-client relationship is established until a formal engagement has been confirmed.
+              </p>
+            </div>
           </div>
         </div>
       </div>

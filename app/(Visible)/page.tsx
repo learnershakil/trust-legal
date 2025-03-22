@@ -6,7 +6,6 @@ import ServicesSection from "@/components/Home/services-section"
 import TestimonialsSection from "@/components/Home/testimonials-section"
 import WhyChooseUsSection from "@/components/Home/why-choose-us-section"
 
-
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
