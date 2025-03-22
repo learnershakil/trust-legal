@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import x from "@/public/x.png";
-import Facebook from "@/public/facebook.png";
+// import Facebook from "@/public/facebook.png";
 import Instagram from "@/public/instagram.png";
 import Linkedin from "@/public/linkedin.png";
+import LawSociety from "./../../public/Law-Society.svg";
 
 export default function Footer() {
   return (
@@ -101,22 +102,12 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             {/* Law Society Badge */}
             <div className="flex items-center">
-              <svg viewBox="0 0 40 40" className="w-9 h-9 text-[#ba9669]">
-                <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-              <div className="border-l border-gray-300 pl-4 ml-4 flex items-center">
-                <div className="text-sm font-medium text-[#202d4a]">
-                  <div>Law Society</div>
-                  <div>of Ontario</div>
-                </div>
-                <div className="mx-4 h-8 w-px bg-gray-300"></div>
-                <div className="text-sm font-medium text-[#202d4a]">
-                  <div>Barreau</div>
-                  <div>de l&apos;Ontario</div>
-                </div>
-              </div>
+              <Image
+                src="/Law-Society.png"
+                alt="Law Society of Ontario"
+                width={260}
+                height={260}
+              />
             </div>
 
             {/* Copyright and Disclaimer */}
@@ -125,8 +116,9 @@ export default function Footer() {
                 &copy; {new Date().getFullYear()} <span className="font-medium text-[#ba9669]">TRUST LEGAL</span>. All rights reserved.
               </p>
               <p className="text-xs leading-relaxed text-gray-600">
-                DISCLAIMER: The information provided is for informational purposes only and does not constitute legal advice. 
-                No solicitor-client relationship is established until a formal engagement has been confirmed.
+                DISCLAIMER: The information obtained on this site is not intended to be legal advice. 
+                Please consult a legal professional for advice regarding your individual situation. 
+                Please be advised that contacting the firm does not create a solicitor-client nor a legal relationship of any kind. Please do not send any confidential information until such relationship has been established and retainer has been signed
               </p>
             </div>
           </div>
