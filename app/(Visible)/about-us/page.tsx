@@ -146,88 +146,123 @@ export default function AboutPage() {
       {/* Firm Overview with Enhanced Design */}
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6" data-aos="fade-right">
-          <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669]">
-            Our Firm
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mt-3 mb-6">
-            A Tradition of{" "}
-            <span className="text-[#ba9669]">Excellence</span>
-          </h2>
-          <div className="w-20 h-1 bg-[#ba9669] mb-6"></div>
-          <p className="text-[#202d4a]/80 mb-5 text-lg">
-            Founded on the principles of integrity, professionalism, and
-            client dedication, Trust Legal has established itself as a
-            premier legal practice serving individuals and businesses
-            across Ontario.
-          </p>
-          <p className="text-[#202d4a]/80 mb-5 text-lg">
-            We understand that legal issues can be overwhelming, which is
-            why we focus on providing clear, practical advice and
-            personalized solutions that address your unique circumstances
-            and objectives.
-          </p>
-          <p className="text-[#202d4a]/80 mb-8 text-lg">
-            Our multidisciplinary approach allows us to handle complex
-            legal matters across Business Law, Civil Litigation, Immigration,
-            and Real Estate, ensuring comprehensive representation before the 
-            Ontario Superior Court of Justice and various provincial tribunals.
-          </p>
-          <div className="flex items-center space-x-4 p-5 bg-[#f9f9f9] rounded-lg border-l-4 border-[#ba9669] shadow-sm">
-            <div className="h-14 w-14 rounded-full bg-[#ba9669]/20 flex items-center justify-center shrink-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-[#ba9669]"
-            >
-              <path d="m12 15 2 2 4-4"></path>
-              <rect
-              width="14"
-              height="14"
-              x="8"
-              y="8"
-              rx="2"
-              ry="2"
-              ></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-            </svg>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16" data-aos="fade-up">
+              <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669]">
+                Our Firm
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-[#202d4a] mt-3">
+                A Tradition of <span className="text-[#ba9669]">Excellence</span>
+              </h2>
+              <div className="w-24 h-1 bg-[#ba9669] mx-auto mt-6 mb-8"></div>
             </div>
-            <div>
-            <h3 className="text-xl font-semibold text-[#202d4a]">
-              Client-Centred Approach
-            </h3>
-            <p className="text-[#202d4a]/70">
-              Your goals become our mission. We prioritize your success.
-            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              <div className="bg-[#f9fafb] p-8 rounded-xl border-l-4 border-[#ba9669] shadow-md" data-aos="fade-right" data-aos-delay="100">
+                <div className="h-14 w-14 rounded-full bg-[#ba9669]/20 flex items-center justify-center mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#ba9669]"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#202d4a] mb-4">Our Mission</h3>
+                <p className="text-[#202d4a]/80 leading-relaxed">
+                  Founded on the principles of integrity, professionalism, and
+                  client dedication, Trust Legal has established itself as a
+                  premier legal practice serving individuals and businesses
+                  across Ontario. Our mission is to provide exceptional legal representation
+                  with unwavering commitment to your success.
+                </p>
+              </div>
+
+              <div className="bg-[#f9fafb] p-8 rounded-xl border-l-4 border-[#ba9669] shadow-md" data-aos="fade-left" data-aos-delay="200">
+                <div className="h-14 w-14 rounded-full bg-[#ba9669]/20 flex items-center justify-center mb-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#ba9669]"
+                  >
+                    <path d="m12 15 2 2 4-4"></path>
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#202d4a] mb-4">Client-Centered Approach</h3>
+                <p className="text-[#202d4a]/80 leading-relaxed">
+                  We understand that legal issues can be overwhelming, which is
+                  why we focus on providing clear, practical advice and
+                  personalized solutions that address your unique circumstances
+                  and objectives. Your goals become our mission, and we prioritize 
+                  your success in everything we do.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-[#202d4a] to-[#2a3c5c] p-10 rounded-2xl shadow-xl text-white mb-16" data-aos="fade-up">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center" data-aos="fade-up" data-aos-delay="100">
+                  <div className="text-[#ba9669] text-4xl font-bold mb-2">12+</div>
+                  <div className="text-lg">Years of Experience</div>
+                  <div className="w-12 h-1 bg-[#ba9669]/50 mx-auto mt-4"></div>
+                </div>
+                <div className="text-center" data-aos="fade-up" data-aos-delay="200">
+                  <div className="text-[#ba9669] text-4xl font-bold mb-2">100+</div>
+                  <div className="text-lg">Satisfied Clients</div>
+                  <div className="w-12 h-1 bg-[#ba9669]/50 mx-auto mt-4"></div>
+                </div>
+                <div className="text-center" data-aos="fade-up" data-aos-delay="300">
+                  <div className="text-[#ba9669] text-4xl font-bold mb-2">90%</div>
+                  <div className="text-lg">Success Rate</div>
+                  <div className="w-12 h-1 bg-[#ba9669]/50 mx-auto mt-4"></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-[#f9fafb] p-8 rounded-xl shadow-lg border border-gray-100" data-aos="fade-up">
+              <h3 className="text-2xl font-bold text-[#202d4a] mb-6">Our Expertise</h3>
+              <p className="text-[#202d4a]/80 mb-8 text-lg">
+                Our multidisciplinary approach allows us to handle complex
+                legal matters across various practice areas, ensuring comprehensive 
+                representation before the Ontario Superior Court of Justice and 
+                various provincial tribunals.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-[#ba9669]" data-aos="fade-up" data-aos-delay="100">
+                  <h4 className="font-semibold text-[#202d4a] mb-2">Business Law</h4>
+                  <p className="text-[#202d4a]/70 text-sm">Comprehensive legal solutions for businesses of all sizes</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-[#ba9669]" data-aos="fade-up" data-aos-delay="200">
+                  <h4 className="font-semibold text-[#202d4a] mb-2">Civil Litigation</h4>
+                  <p className="text-[#202d4a]/70 text-sm">Strategic representation in complex disputes</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-[#ba9669]" data-aos="fade-up" data-aos-delay="300">
+                  <h4 className="font-semibold text-[#202d4a] mb-2">Immigration</h4>
+                  <p className="text-[#202d4a]/70 text-sm">Guidance through Canada&apos;s immigration processes</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-[#ba9669]" data-aos="fade-up" data-aos-delay="400">
+                  <h4 className="font-semibold text-[#202d4a] mb-2">Real Estate</h4>
+                  <p className="text-[#202d4a]/70 text-sm">Our qualified legal team specializes in property transactions and resolving real estate disputes</p>
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-          <div className="lg:col-span-6" data-aos="fade-left">
-          <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
-            <Image
-            src={TorontoOffice}
-            alt="Trust Legal Office"
-            fill
-            className="object-cover transition-transform hover:scale-105 duration-700"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            priority
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#202d4a] to-transparent">
-            <p className="text-white text-lg font-medium">
-              Our Toronto Office
-            </p>
-            </div>
-          </div>
-          </div>
-        </div>
         </div>
       </section>
 

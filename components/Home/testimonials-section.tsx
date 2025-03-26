@@ -46,8 +46,8 @@ export default function TestimonialsSection() {
     {
       quote:
         "TRUST LEGAL provided exceptional guidance through our company's complex regulatory compliance challenges. Their business law expertise helped us restructure our operations efficiently while minimizing legal risks.",
-      author: "Sarah Johnson",
-      title: "CEO, Pinnacle Innovations",
+      author: "Shakil Ahmad",
+      title: "Founder, Learner's Arc",
       image: woman,
     },
     {

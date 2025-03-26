@@ -49,7 +49,7 @@ export default function PracticeAreasPage() {
       id: "real-estate",
       title: "Real Estate",
       icon: <Building2 className="h-10 w-10" />,
-      description: "Our team of qualified Ontario lawyers provides thorough legal counsel for all aspects of residential and commercial real estate matters.",
+      description: "Our team of qualified Ontario lawyers provides thorough legal counsel for all residential and commercial real estate matters.",
       services: [
         "Commercial Property Transactions",
         "Residential Real Estate Closings",
@@ -65,217 +65,197 @@ export default function PracticeAreasPage() {
     <div className="flex min-h-screen flex-col">
       <main>
       {/* Hero Section */}
-      <section className="relative bg-[#202d4a] text-white">
-      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-      <div className="container mx-auto px-4 py-24 relative z-10">
-      <div className="max-w-3xl">
-        <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">Our Expertise</div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">Practice Areas</h1>
-        <p className="text-lg text-gray-300 mb-8">
-        At TRUST LEGAL, we provide comprehensive legal solutions across various practice areas,
-        ensuring our Ontario clients receive expert guidance tailored to their specific needs.
-        </p>
-      </div>
-      </div>
+      <section className="relative bg-[#202d4a] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#202d4a]/80 to-transparent z-0"></div>
+        <div className="container mx-auto px-4 py-28 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4 backdrop-blur-sm">Our Expertise</div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Expert Legal Solutions For Every Challenge</h1>
+            <p className="text-lg text-gray-100 mb-8 leading-relaxed max-w-2xl">
+              At TRUST LEGAL, we provide comprehensive legal solutions across various practice areas,
+              ensuring our Ontario clients receive expert guidance tailored to their specific needs.
+            </p>
+            <Link
+              href="/contact-us"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-semibold rounded-md hover:bg-[#ba9669]/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Schedule a Consultation
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Overview Section */}
-      <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">How We Help</div>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">Legal Solutions For Your Needs</h2>
-        <p className="text-[#202d4a]/70 text-lg">
-        Our diverse expertise allows us to handle a wide range of Ontario legal matters with precision and care.
-        Whether you require assistance with business matters, litigation, immigration, or real estate transactions,
-        our skilled legal team is ready to advocate for your best interests under Ontario law.
-        </p>
-      </div>
-
-      {/* Practice Areas Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        {practiceAreas.map((area) => (
-        <div key={area.id} className="bg-[#f9f9f9] rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-        <div className="bg-[#202d4a] p-8">
-        <div className="text-[#ba9669] mb-4">{area.icon}</div>
-        <h3 className="text-2xl font-bold text-white mb-2">{area.title}</h3>
-        <p className="text-gray-300">{area.description}</p>
-        </div>
-        <div className="p-6">
-        <h4 className="text-lg font-medium text-[#202d4a] mb-4">Our Services Include:</h4>
-        <ul className="space-y-2 mb-6">
-          {area.services.map((service, index) => (
-          <li key={index} className="flex items-start">
-          <div className="rounded-full bg-[#ba9669]/20 p-1 text-[#ba9669] mr-3 mt-1">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">How We Help</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">Legal Solutions For Your Needs</h2>
+            <p className="text-[#202d4a]/70 text-lg">
+              Our diverse expertise allows us to handle a wide range of Ontario legal matters with precision and care.
+              Whether you require assistance with business matters, litigation, immigration, or real estate transactions,
+              our skilled legal team is ready to advocate for your best interests under Ontario law.
+            </p>
           </div>
-          <span className="text-[#202d4a]/80">{service}</span>
-          </li>
-          ))}
-        </ul>
-        <div className="mt-4">
-          <Link
-          href={`/practice-areas/${area.id}`}
-          className="inline-flex items-center text-[#ba9669] hover:text-[#ba9669]/80 font-medium transition-colors"
-          >
-          Learn More <ChevronRight className="ml-1 h-4 w-4" />
-          </Link>
+
+          {/* Practice Areas Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+            {practiceAreas.map((area) => (
+              <div key={area.id} className="bg-[#f9f9f9] rounded-xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-[#202d4a] p-8 relative">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#ba9669]/10 rounded-bl-full"></div>
+                  <div className="text-[#ba9669] mb-4">{area.icon}</div>
+                  <h3 className="text-2xl font-bold text-white mb-2">{area.title}</h3>
+                  <p className="text-gray-300">{area.description}</p>
+                </div>
+                <div className="p-8">
+                  <h4 className="text-lg font-medium text-[#202d4a] mb-4">Our Services Include:</h4>
+                  <ul className="space-y-3 mb-6">
+                    {area.services.map((service, index) => (
+                      <li key={index} className="flex items-start group">
+                        <div className="rounded-full bg-[#ba9669]/20 p-1 text-[#ba9669] mr-3 mt-1 group-hover:bg-[#ba9669] group-hover:text-white transition-colors">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <span className="text-[#202d4a]/80 group-hover:text-[#202d4a] transition-colors">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6">
+                    <Link
+                      href={`/practice-areas/${area.id}`}
+                      className="inline-flex items-center text-[#ba9669] hover:text-[#ba9669]/80 font-medium transition-colors group"
+                    >
+                      Learn More <ChevronRight className="ml-1 h-4 w-4 group-hover:ml-2 transition-all" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        </div>
-        </div>
-        ))}
-      </div>
-      </div>
       </section>
 
-      {/* Approach Section */}
-      <section className="py-16 md:py-24 bg-[#f9f9f9]">
-      <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-        <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">Our Approach</div>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">How We Work With You</h2>
-        <div className="space-y-6">
-        <div className="flex items-start gap-4">
-        <div className="rounded-full bg-[#202d4a] text-white h-8 w-8 flex items-center justify-center flex-shrink-0">
-          1
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-[#202d4a] mb-2">Initial Consultation</h3>
-          <p className="text-[#202d4a]/70">
-          We begin with a thorough consultation to understand your specific Ontario legal needs, objectives, and circumstances.
-          </p>
-        </div>
-        </div>
-        <div className="flex items-start gap-4">
-        <div className="rounded-full bg-[#202d4a] text-white h-8 w-8 flex items-center justify-center flex-shrink-0">
-          2
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-[#202d4a] mb-2">Strategic Planning</h3>
-          <p className="text-[#202d4a]/70">
-          Our legal team develops a tailored strategy designed to achieve your goals efficiently and effectively within Ontario&apos;s legal framework.
-          </p>
-        </div>
-        </div>
-        <div className="flex items-start gap-4">
-        <div className="rounded-full bg-[#202d4a] text-white h-8 w-8 flex items-center justify-center flex-shrink-0">
-          3
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-[#202d4a] mb-2">Execution & Advocacy</h3>
-          <p className="text-[#202d4a]/70">
-          We implement the strategy with meticulous attention to detail and advocate strongly on your behalf before Ontario courts and tribunals.
-          </p>
-        </div>
-        </div>
-        <div className="flex items-start gap-4">
-        <div className="rounded-full bg-[#202d4a] text-white h-8 w-8 flex items-center justify-center flex-shrink-0">
-          4
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-[#202d4a] mb-2">Ongoing Support</h3>
-          <p className="text-[#202d4a]/70">
-          We provide continuous guidance and regular updates, ensuring you&apos;re informed every step of the way throughout your Ontario legal matter.
-          </p>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
-        <div className="space-y-6">
-        <div>
-        <p className="text-xl font-bold text-[#202d4a] mb-2">Our Commitment</p>
-        <p className="text-[#202d4a]/70">
-          At TRUST LEGAL, we are dedicated to providing exceptional legal services that exceed our Ontario clients&apos; expectations. We approach each case with diligence, creativity, and a commitment to achieving the best possible outcome under Ontario law.
-        </p>
-        </div>
+      {/* Our Process Section (Redesigned Approach Section) */}
+      <section className="py-20 md:py-28 bg-[#f5f7fa]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">Our Process</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">How We Work With You</h2>
+            <p className="text-[#202d4a]/70 text-lg max-w-3xl mx-auto">
+              We&apos;ve developed a streamlined process to ensure your legal matters are handled efficiently and effectively,
+              keeping you informed every step of the way.
+            </p>
+          </div>
 
-        <div className="pt-6 border-t border-gray-200">
-        <p className="text-xl font-bold text-[#202d4a] mb-2">Client-Centered Practice</p>
-        <p className="text-[#202d4a]/70">
-          We believe in building strong client relationships based on trust, open communication, and responsiveness. Your goals become our goals, and we work tirelessly to help you achieve them within Ontario&apos;s legal system.
-        </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all relative overflow-hidden group">
+              <div className="absolute top-0 right-0 h-20 w-20 bg-[#ba9669]/10 rounded-bl-full transform group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="rounded-full bg-[#202d4a] text-white h-12 w-12 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#ba9669] transition-colors">1</div>
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">Initial Consultation</h3>
+              <p className="text-[#202d4a]/70 relative z-10">
+                We begin with a thorough consultation to understand your specific Ontario legal needs, objectives, and circumstances.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all relative overflow-hidden group">
+              <div className="absolute top-0 right-0 h-20 w-20 bg-[#ba9669]/10 rounded-bl-full transform group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="rounded-full bg-[#202d4a] text-white h-12 w-12 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#ba9669] transition-colors">2</div>
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">Strategic Planning</h3>
+              <p className="text-[#202d4a]/70 relative z-10">
+                Our legal team develops a tailored strategy designed to achieve your goals efficiently within Ontario&apos;s legal framework.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all relative overflow-hidden group">
+              <div className="absolute top-0 right-0 h-20 w-20 bg-[#ba9669]/10 rounded-bl-full transform group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="rounded-full bg-[#202d4a] text-white h-12 w-12 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#ba9669] transition-colors">3</div>
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">Execution & Advocacy</h3>
+              <p className="text-[#202d4a]/70 relative z-10">
+                We implement the strategy with meticulous attention to detail and advocate strongly on your behalf in all legal venues.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all relative overflow-hidden group">
+              <div className="absolute top-0 right-0 h-20 w-20 bg-[#ba9669]/10 rounded-bl-full transform group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="rounded-full bg-[#202d4a] text-white h-12 w-12 flex items-center justify-center text-xl font-bold mb-6 group-hover:bg-[#ba9669] transition-colors">4</div>
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">Ongoing Support</h3>
+              <p className="text-[#202d4a]/70 relative z-10">
+                We provide continuous guidance and regular updates, ensuring you&apos;re informed throughout your Ontario legal matter.
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link
+              href="/about-us"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#202d4a] text-white font-medium rounded-md hover:bg-[#202d4a]/90 transition-all shadow-md hover:shadow-lg"
+            >
+              Learn More About Our Approach
+            </Link>
+          </div>
         </div>
-
-        <div className="pt-6 border-t border-gray-200 mb-6">
-        <div className="mb-4">
-          <p className="text-lg font-medium text-[#ba9669]">OMUNG GUPTA</p>
-          <p className="text-sm text-[#202d4a]/70">BARRISTER AND SOLICITOR</p>
-        </div>
-        <p className="italic text-[#202d4a]/70">
-          &quot;Every legal challenge has a solution. Our role is to find the most effective path forward for our Ontario clients.&quot;
-        </p>
-        </div>
-
-        <Link
-        href="/contact-us"
-        className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors w-full"
-        >
-        Schedule a Consultation
-        </Link>
-        </div>
-        </div>
-      </div>
-      </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
-        <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">FAQ</div>
-        <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a]">Common Questions</h2>
-      </div>
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">FAQ</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">Common Questions</h2>
+            <p className="text-[#202d4a]/70 text-lg max-w-3xl mx-auto">
+              We&apos;ve answered some of the most frequently asked questions about our services and processes.
+            </p>
+          </div>
 
-      <div className="max-w-3xl mx-auto space-y-6">
-        <div className="border border-gray-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#202d4a] mb-3">How do I know which practice area my legal issue falls under?</h3>
-        <p className="text-[#202d4a]/70">
-        Many legal matters can span multiple practice areas. During your initial consultation, we&apos;ll assess your situation and determine which of our legal teams is best suited to handle your needs under Ontario law. Often, we take a collaborative approach to provide comprehensive service.
-        </p>
-        </div>
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="border border-gray-200 rounded-lg p-6 hover:border-[#ba9669] transition-colors hover:shadow-md">
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">How do I know which practice area my legal issue falls under?</h3>
+              <p className="text-[#202d4a]/70">
+                Many legal matters can span multiple practice areas. During your initial consultation, we&apos;ll assess your situation and determine which of our legal teams is best suited to handle your needs under Ontario law. Often, we take a collaborative approach to provide comprehensive service.
+              </p>
+            </div>
 
-        <div className="border border-gray-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#202d4a] mb-3">What types of clients do you typically represent?</h3>
-        <p className="text-[#202d4a]/70">
-        We represent a diverse Ontario clientele including individuals, families, startups, small to medium-sized businesses, and established corporations. Our services are tailored to meet the specific needs of each client, regardless of size or industry within the Ontario market.
-        </p>
-        </div>
+            <div className="border border-gray-200 rounded-lg p-6 hover:border-[#ba9669] transition-colors hover:shadow-md">
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">What types of clients do you typically represent?</h3>
+              <p className="text-[#202d4a]/70">
+                We represent a diverse Ontario clientele including individuals, families, startups, small to medium-sized businesses, and established corporations. Our services are tailored to meet the specific needs of each client, regardless of size or industry within the Ontario market.
+              </p>
+            </div>
 
-        <div className="border border-gray-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#202d4a] mb-3">How are legal fees structured?</h3>
-        <p className="text-[#202d4a]/70">
-        Fee structures vary depending on the nature of your case. We offer hourly rates, flat fees for specific services, and contingency arrangements where permitted by the Law Society of Ontario. We provide transparent fee information at the outset of our engagement and work to ensure our services deliver value.
-        </p>
-        </div>
+            <div className="border border-gray-200 rounded-lg p-6 hover:border-[#ba9669] transition-colors hover:shadow-md">
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">How are legal fees structured?</h3>
+              <p className="text-[#202d4a]/70">
+                Fee structures vary depending on the nature of your case. We offer hourly rates, flat fees for specific services, and contingency arrangements where permitted by the Law Society of Ontario. We provide transparent fee information at the outset of our engagement and work to ensure our services deliver value.
+              </p>
+            </div>
 
-        <div className="border border-gray-200 rounded-lg p-6">
-        <h3 className="text-xl font-bold text-[#202d4a] mb-3">How quickly can you respond to urgent legal matters?</h3>
-        <p className="text-[#202d4a]/70">
-        We understand that legal issues can arise unexpectedly and require immediate attention. Our team is committed to responding promptly to urgent matters and can provide expedited services when necessary within Ontario&apos;s legal timeframes. For emergencies, please contact our office directly.
-        </p>
+            <div className="border border-gray-200 rounded-lg p-6 hover:border-[#ba9669] transition-colors hover:shadow-md">
+              <h3 className="text-xl font-bold text-[#202d4a] mb-3">How quickly can you respond to urgent legal matters?</h3>
+              <p className="text-[#202d4a]/70">
+                We understand that legal issues can arise unexpectedly and require immediate attention. Our team is committed to responding promptly to urgent matters and can provide expedited services when necessary within Ontario&apos;s legal timeframes. For emergencies, please contact our office directly.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-[#202d4a] text-white">
-      <div className="container mx-auto px-4 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Discuss Your Legal Needs?</h2>
-      <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-        Contact TRUST LEGAL today to schedule a consultation with our experienced Ontario legal team. We&apos;ll help you navigate the complexities of Ontario law and develop strategic solutions for your specific situation.
-      </p>
-      <Link
-        href="/contact"
-        className="inline-flex items-center justify-center px-8 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
-      >
-        Contact Us
-      </Link>
-      </div>
+      <section className="py-20 md:py-28 bg-gradient-to-r from-[#202d4a] to-[#2a3a5f] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Discuss Your Legal Needs?</h2>
+          <p className="text-gray-300 mb-10 max-w-2xl mx-auto">
+            Contact TRUST LEGAL today to schedule a consultation with our experienced Ontario legal team. We&apos;ll help you navigate the complexities of Ontario law and develop strategic solutions for your specific situation.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Contact Us Today
+          </Link>
+        </div>
       </section>
       </main>
     </div>

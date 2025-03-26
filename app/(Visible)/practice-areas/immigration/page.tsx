@@ -122,18 +122,34 @@ export default function ImmigrationPage() {
     },
   ];
 
+  // const statistics = [
+  //   { number: "1,000+", label: "Successful Immigration Cases" },
+  //   { number: "98%", label: "Client Satisfaction Rate" },
+  //   { number: "15+", label: "Years of Immigration Expertise" },
+  //   { number: "50+", label: "Countries Represented" },
+  // ];
+
   return (
     <div className="flex min-h-screen flex-col">
       <main>
       {/* Hero Section */}
-      <section className="relative bg-[#202d4a] text-white">
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+      <section className="relative bg-[#202d4a] text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/immigration-hero-bg.jpg" 
+            alt="Immigration background" 
+            fill 
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#202d4a] to-[#202d4a]/50 z-[1]"></div>
         <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
         <div className="max-w-3xl">
-          <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
+          <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4 backdrop-blur-sm">
           Practice Area
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
           Immigration Law
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8">
@@ -144,13 +160,13 @@ export default function ImmigrationPage() {
           <div className="flex flex-wrap gap-4">
           <Link
             href="/contact-us"
-            className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors transform hover:scale-105"
           >
             Schedule a Consultation
           </Link>
           <Link
             href="#services"
-            className="inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white font-medium rounded-md hover:bg-white/20 transition-colors backdrop-blur-sm"
+            className="inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white font-medium rounded-md hover:bg-white/20 transition-colors backdrop-blur-sm transform hover:scale-105"
           >
             Explore Services
           </Link>
@@ -158,6 +174,20 @@ export default function ImmigrationPage() {
         </div>
         </div>
       </section>
+
+      {/* Statistics Section */}
+      {/* <section className="py-10 bg-[#ba9669]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {statistics.map((stat, index) => (
+              <div key={index} className="group">
+                <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:scale-110 transition-transform">{stat.number}</h3>
+                <p className="text-white/80 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
 
       {/* Overview Section */}
       <section className="py-16 md:py-24 bg-white">
@@ -195,7 +225,7 @@ export default function ImmigrationPage() {
             "Responsive client communication",
             "Post-application support",
             ].map((item, index) => (
-            <div key={index} className="flex items-start gap-2">
+            <div key={index} className="flex items-start gap-2 hover:bg-[#f9f9f9] p-2 rounded-md transition-colors">
               <div className="rounded-full bg-[#ba9669]/20 p-1 text-[#ba9669] mt-1">
               <Check className="h-4 w-4" />
               </div>
@@ -204,7 +234,7 @@ export default function ImmigrationPage() {
             ))}
           </div>
           </div>
-          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl transform transition-transform hover:scale-[1.02]">
           <Image
             src="/immigration-law.jpg"
             alt="Immigration Services"
@@ -237,7 +267,7 @@ export default function ImmigrationPage() {
           {immigrationServices.map((service, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+            className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 transform hover:translate-y-[-5px]"
           >
             <div className="p-6">
             <div className="rounded-full bg-[#202d4a]/10 p-3 w-fit text-[#202d4a] mb-4">
@@ -328,9 +358,9 @@ export default function ImmigrationPage() {
             "We submit your application and handle all communication with Ontario immigration authorities until a decision is reached.",
           },
           ].map((step, index) => (
-          <div key={index} className="relative">
-            <div className="bg-[#f9f9f9] rounded-lg p-6 h-full border border-gray-100 relative z-10">
-            <div className="rounded-full bg-[#ba9669]/20 p-3 w-fit text-[#ba9669] mb-4">
+          <div key={index} className="relative group">
+            <div className="bg-[#f9f9f9] rounded-lg p-6 h-full border border-gray-100 relative z-10 group-hover:bg-white group-hover:shadow-lg transition-all duration-300">
+            <div className="rounded-full bg-[#ba9669]/20 p-3 w-fit text-[#ba9669] mb-4 group-hover:bg-[#ba9669]/30 transition-colors">
               {step.icon}
             </div>
             <h3 className="text-xl font-bold text-[#202d4a] mb-3">
@@ -339,8 +369,8 @@ export default function ImmigrationPage() {
             <p className="text-[#202d4a]/70">{step.description}</p>
             </div>
             {index < 3 && (
-            <div className="hidden lg:block absolute top-1/2 right-[-20px] transform -translate-y-1/2 z-20">
-              <ChevronRight className="h-8 w-8 text-[#ba9669]" />
+            <div className="hidden lg:block absolute top-1/2 right-[-20px] transform -translate-y-1/2 z-20 text-[#ba9669] animate-pulse">
+              <ChevronRight className="h-8 w-8" />
             </div>
             )}
           </div>
@@ -400,7 +430,7 @@ export default function ImmigrationPage() {
           ].map((benefit, index) => (
           <div
             key={index}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/15 transition-colors duration-300 transform hover:translate-y-[-5px]"
           >
             <h3 className="text-xl font-bold text-[#ba9669] mb-3">
             {benefit.title}
@@ -412,72 +442,49 @@ export default function ImmigrationPage() {
         </div>
       </section>
 
-      {/* Case Study or Example */}
+      {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-          <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
-            Success Story
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a] mb-6">
-            Family Reunification After Multiple Challenges
-          </h2>
-          <p className="text-[#202d4a]/70 mb-4">
-            A client approached us after facing multiple refusals in their
-            attempts to sponsor their spouse to Ontario, causing years of
-            separation and significant emotional distress.
-          </p>
-          <div className="space-y-6 mb-6">
-            <div>
-            <h3 className="text-lg font-medium text-[#202d4a] mb-2">
-              The Challenge
-            </h3>
-            <p className="text-[#202d4a]/70">
-              The previous applications had been rejected due to
-              relationship authenticity concerns and procedural errors.
-              The couple had been separated for over three years, and
-              the Ontario sponsor was experiencing health issues
-              requiring family support.
-            </p>
+          <div className="text-center mb-16">
+            <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
+              Client Experiences
             </div>
-            <div>
-            <h3 className="text-lg font-medium text-[#202d4a] mb-2">
-              Our Approach
-            </h3>
-            <p className="text-[#202d4a]/70">
-              We conducted a comprehensive review of the previous
-              applications to identify all issues. We then prepared a
-              new application with substantially improved documentation
-              of the relationship, including detailed affidavits,
-              organized communication records, and additional supporting
-              evidence. We also addressed medical compassionate factors
-              and prepared the clients for potential interviews with Ontario immigration officials.
+            <h2 className="text-3xl md:text-4xl font-bold text-[#202d4a]">
+              What Our Clients Say
+            </h2>
+            <p className="mt-4 text-[#202d4a]/70 max-w-3xl mx-auto">
+              Read what our clients have to say about their experience working with our immigration team.
             </p>
-            </div>
-            <div>
-            <h3 className="text-lg font-medium text-[#202d4a] mb-2">
-              The Result
-            </h3>
-            <p className="text-[#202d4a]/70">
-              The new spousal sponsorship application was approved
-              within 11 months, significantly faster than the average
-              processing time. The couple was finally reunited in
-              Ontario, ending their long separation and allowing them to
-              begin their life together in their new home.
-            </p>
-            </div>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "The team at TRUST LEGAL made my immigration process to Ontario so much smoother than I expected. Their knowledge and professionalism are outstanding.",
+                name: "Sarah M.",
+                location: "Express Entry Client"
+              },
+              {
+                quote: "After struggling with my application for months, TRUST LEGAL helped me navigate the complex immigration system and achieve my goal of bringing my family to Ontario.",
+                name: "Raj P.",
+                location: "Family Sponsorship Client"
+              },
+              {
+                quote: "Their attention to detail and strategic approach to my business immigration case made all the difference. I highly recommend their services to entrepreneurs.",
+                name: "Michael T.",
+                location: "Business Immigration Client"
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-[#f9f9f9] p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="text-[#ba9669] mb-4 text-3xl">&quot;</div>
+                <p className="text-[#202d4a]/80 mb-6 italic">{testimonial.quote}</p>
+                <div>
+                  <p className="font-medium text-[#202d4a]">{testimonial.name}</p>
+                  <p className="text-sm text-[#202d4a]/60">{testimonial.location}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="order-1 lg:order-2 relative h-[400px] rounded-lg overflow-hidden shadow-lg">
-          <Image
-            src="/immigration-case-study.jpg"
-            alt="Ontario Immigration Success Story"
-            fill
-            className="object-cover"
-          />
-          </div>
-        </div>
         </div>
       </section>
 
@@ -497,7 +504,7 @@ export default function ImmigrationPage() {
           {immigrationFAQs.map((faq, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
+            className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
           >
             <h3 className="text-xl font-bold text-[#202d4a] mb-3">
             {faq.question}
@@ -510,7 +517,7 @@ export default function ImmigrationPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24 bg-[#202d4a] text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-[#202d4a] to-[#2d3e63] text-white">
         <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Ready to Begin Your Ontario Journey?
@@ -523,7 +530,7 @@ export default function ImmigrationPage() {
         </p>
         <Link
           href="/contact-us"
-          className="inline-flex items-center justify-center px-8 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-colors"
+          className="inline-flex items-center justify-center px-8 py-3 bg-[#ba9669] text-white font-medium rounded-md hover:bg-[#ba9669]/90 transition-all duration-300 transform hover:scale-105"
         >
           Schedule a Consultation
         </Link>

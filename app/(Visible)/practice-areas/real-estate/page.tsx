@@ -140,7 +140,7 @@ export default function RealEstatePage() {
                 Real Estate Law
               </h1>
               <p className="text-lg md:text-xl text-gray-300 mb-8">
-                Through our dedicated team, we provide thorough legal counsel for all aspects of Ontario residential and
+                Our team of qualified lawyers specializes in all aspects of Ontario residential and
                 commercial real estate transactions, ensuring your property
                 interests are protected.
               </p>
@@ -174,7 +174,7 @@ export default function RealEstatePage() {
                   Navigating Ontario Real Estate Transactions with Confidence
                 </h2>
                 <p className="text-[#202d4a]/70 mb-6">
-                  At TRUST LEGAL, we have assembled a specialized real estate team that understands Ontario property transactions
+                  At TRUST LEGAL, we have assembled a specialized team of lawyers qualified in real estate law who understand Ontario property transactions
                   represent significant investments and important milestones,
                   whether for individuals or businesses. Our real estate
                   practice combines legal expertise with practical knowledge of
@@ -182,7 +182,7 @@ export default function RealEstatePage() {
                   transactions.
                 </p>
                 <p className="text-[#202d4a]/70 mb-6">
-                  Our team of qualified real estate professionals provides detailed
+                  Our team of qualified real estate lawyers provides detailed
                   attention to every aspect of property transactions, from
                   initial agreement of purchase and sale through due diligence and completion. Our
                   experienced solicitors anticipate potential issues before they arise
@@ -231,7 +231,7 @@ export default function RealEstatePage() {
               </h2>
               <p className="mt-4 text-[#202d4a]/70 max-w-3xl mx-auto">
                 From residential purchases to complex commercial developments,
-                our specialized real estate team offers complete legal support for all
+                our team of qualified real estate lawyers offers complete legal support for all
                 your property transactions in Ontario.
               </p>
             </div>
@@ -299,7 +299,7 @@ export default function RealEstatePage() {
                 Ontario Real Estate Transaction Journey
               </h2>
               <p className="mt-4 text-[#202d4a]/70 max-w-3xl mx-auto">
-                Our specialized team&apos;s structured approach ensures thorough handling of every
+                Our team of qualified real estate lawyers ensures thorough handling of every
                 aspect of your Ontario real estate transaction from initial agreement to
                 final completion.
               </p>
@@ -311,25 +311,25 @@ export default function RealEstatePage() {
                   icon: <FileText className="h-6 w-6" />,
                   title: "Agreement Review",
                   description:
-                    "Our real estate team meticulously reviews all agreement terms to ensure your interests are protected and potential issues are addressed upfront.",
+                    "Our real estate lawyers meticulously review all agreement terms to ensure your interests are protected and potential issues are addressed upfront.",
                 },
                 {
                   icon: <Shield className="h-6 w-6" />,
                   title: "Due Diligence",
                   description:
-                    "Our specialists conduct comprehensive due diligence including title searches, survey reviews, and Ontario regulatory compliance verification.",
+                    "Our legal specialists conduct comprehensive due diligence including title searches, survey reviews, and Ontario regulatory compliance verification.",
                 },
                 {
                   icon: <Building className="h-6 w-6" />,
                   title: "Negotiation & Resolution",
                   description:
-                    "Our team negotiates necessary terms and resolves any issues discovered during the due diligence process.",
+                    "Our team of lawyers negotiates necessary terms and resolves any issues discovered during the due diligence process.",
                 },
                 {
                   icon: <Map className="h-6 w-6" />,
                   title: "Completion & Transfer",
                   description:
-                    "Our real estate experts prepare and review all completion documents, attend closing, and ensure proper transfer of title and funds.",
+                    "Our qualified real estate lawyers prepare and review all completion documents, attend closing, and ensure proper transfer of title and funds.",
                 },
               ].map((step, index) => (
                 <div key={index} className="relative">
@@ -364,8 +364,7 @@ export default function RealEstatePage() {
                 Why Choose Our Real Estate Team
               </h2>
               <p className="text-gray-300 max-w-3xl mx-auto">
-                Our specialized team&apos;s comprehensive approach to Ontario real estate law provides distinct
-                advantages that protect your investment and ensure smooth
+                Our team of qualified real estate lawyers provides comprehensive legal services that protect your investment and ensure smooth
                 transactions.
               </p>
             </div>
@@ -375,32 +374,32 @@ export default function RealEstatePage() {
                 {
                   title: "Transaction Security",
                   description:
-                    "Our team ensures your Ontario property transaction proceeds with proper legal protection, clear contract terms, and thorough documentation.",
+                    "Our team of lawyers ensures your Ontario property transaction proceeds with proper legal protection, clear contract terms, and thorough documentation.",
                 },
                 {
                   title: "Risk Mitigation",
                   description:
-                    "Our specialists identify and address potential issues before they become problems through comprehensive due diligence and careful review.",
+                    "Our legal specialists identify and address potential issues before they become problems through comprehensive due diligence and careful review.",
                 },
                 {
                   title: "Ontario Regulatory Compliance",
                   description:
-                    "Our real estate team helps you navigate complex Ontario real estate regulations with confidence, ensuring your transaction meets all provincial and municipal requirements.",
+                    "Our real estate lawyers help you navigate complex Ontario real estate regulations with confidence, ensuring your transaction meets all provincial and municipal requirements.",
                 },
                 {
                   title: "Efficient Completions",
                   description:
-                    "Experience smooth, timely completions with all documentation properly prepared and all parties' obligations clearly defined by our dedicated team.",
+                    "Experience smooth, timely completions with all documentation properly prepared and all parties' obligations clearly defined by our qualified legal team.",
                 },
                 {
                   title: "Long-term Protection",
                   description:
-                    "Our specialists help secure your property investment with properly structured agreements that protect your interests now and in the future.",
+                    "Our real estate lawyers help secure your property investment with properly structured agreements that protect your interests now and in the future.",
                 },
                 {
                   title: "Peace of Mind",
                   description:
-                    "Proceed with confidence knowing our experienced real estate team is protecting your interests throughout every step of the Ontario property transaction process.",
+                    "Proceed with confidence knowing our experienced team of qualified real estate lawyers is protecting your interests throughout every step of the Ontario property transaction process.",
                 },
               ].map((benefit, index) => (
                 <div
@@ -452,9 +451,9 @@ export default function RealEstatePage() {
               Ready to Discuss Your Ontario Real Estate Needs?
             </h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Contact TRUST LEGAL today to schedule a consultation with our dedicated real
-              estate team. Whether you&apos;re buying, selling, leasing, or
-              developing property in Ontario, we&apos;ll connect you with our specialized team who will help you navigate the process with
+              Contact TRUST LEGAL today to schedule a consultation with our team of qualified real
+              estate lawyers. Whether you&apos;re buying, selling, leasing, or
+              developing property in Ontario, we&apos;ll connect you with our specialized legal team who will help you navigate the process with
               confidence.
             </p>
             <Link
