@@ -215,7 +215,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-[#202d4a] to-[#2a3c5c] p-10 rounded-2xl shadow-xl text-white mb-16" data-aos="fade-up">
+            {/* <div className="bg-gradient-to-r from-[#202d4a] to-[#2a3c5c] p-10 rounded-2xl shadow-xl text-white mb-16" data-aos="fade-up">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center" data-aos="fade-up" data-aos-delay="100">
                   <div className="text-[#ba9669] text-4xl font-bold mb-2">12+</div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
                   <div className="w-12 h-1 bg-[#ba9669]/50 mx-auto mt-4"></div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="bg-[#f9fafb] p-8 rounded-xl shadow-lg border border-gray-100" data-aos="fade-up">
               <h3 className="text-2xl font-bold text-[#202d4a] mb-6">Our Expertise</h3>

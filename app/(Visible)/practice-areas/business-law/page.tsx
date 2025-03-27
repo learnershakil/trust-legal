@@ -392,7 +392,7 @@ export default function BusinessLawPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-[#f3f0ea]">
+      {/* <section className="py-16 md:py-24 bg-[#f3f0ea]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
@@ -420,7 +420,7 @@ export default function BusinessLawPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Client Benefits */}
       <section className="py-16 md:py-24 bg-[#202d4a] text-white">

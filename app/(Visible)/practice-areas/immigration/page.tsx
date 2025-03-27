@@ -443,7 +443,7 @@ export default function ImmigrationPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block rounded-lg bg-[#ba9669]/20 px-3 py-1 text-sm text-[#ba9669] mb-4">
@@ -486,7 +486,7 @@ export default function ImmigrationPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-16 md:py-24 bg-[#f9f9f9]">
